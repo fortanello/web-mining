@@ -3,7 +3,7 @@ import json
 import shlex
 from collections import Counter
 from pathlib import Path
-from urllib.parse import quote, unquote, urlsplit
+from urllib.parse import unquote, urlsplit
 
 import cdx_toolkit
 from bs4 import BeautifulSoup
@@ -78,13 +78,12 @@ def search(domain, keywords, limit):
 
     found = []
     seen = set()  # один и тот же URL лежит сразу в нескольких обходах
-    # статус, тип и слова в адресе проверяет сам сервер индекса; ~ — «содержит»
-    filters = ["=status:200", "=mime:text/html"] + ["~url:" + quote(word) for word in keywords]
+    filters = ["=status:200", "=mime:text/html"] 
     try:
         # в сеть лезут оба вызова: за списком обходов и за страницами индекса
         fetcher = cdx_toolkit.CDXFetcher(source="cc", crawl=CRAWL)
         for scanned, capture in enumerate(fetcher.iter(f"{domain}/*", filter=filters), start=1):
-            if capture["url"] not in seen:
+            if url_matches(capture["url"], keywords) and capture["url"] not in seen:
                 seen.add(capture["url"])
                 found.append(dict(capture))
             if len(found) >= limit or scanned >= SCAN_LIMIT:
@@ -95,6 +94,10 @@ def search(domain, keywords, limit):
 
     cache[key] = found
     return found
+
+def url_matches(url, keywords):
+    url = unquote(url).lower()
+    return all(word.lower() in url for word in keywords)
 
 # Загрузка страницы из WARC: Range-запрос по offset из индекса
 def load_page(record):
