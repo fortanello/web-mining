@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 import shlex
 from collections import Counter
 from pathlib import Path
@@ -17,6 +18,7 @@ FRAGMENT_LENGTH = 200  # сколько символов текста стран
 CACHE_FILE = Path(__file__).with_name("cache.json")
 HEADERS = ["URL", "Дата архивации", "Заголовок", "Фрагмент текста"]
 COLUMN_WIDTHS = [50, 14, 30, 40]
+HIGHLIGHT, RESET = "\033[1;31m", "\033[0m"  # жирный красный для найденных слов
 
 cdx_toolkit.myrequests.MAX_ERRORS = 3  # по умолчанию 100 повторов по минуте
 
@@ -27,18 +29,23 @@ def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         prog="cc-search",
         description="Поиск страниц в архиве Common Crawl по CDX-индексу.",
-        epilog="Пример: python main.py Пастернак --domain ru.wikipedia.org --text Перм",
+        epilog="Пример: python main.py --domain ru.wikipedia.org --prefix wiki/Пастернак --text Перм*",
     )
     parser.add_argument(
         "keywords",
         nargs="*",
-        help="слова, которые должны быть в URL страницы, с учётом регистра (без слов — все страницы)",
+        help="слова, которые должны быть в URL страницы, без учёта регистра (без слов — все страницы)",
     )
     parser.add_argument(
         "--domain",
         nargs="+",
         default=["pstu.ru"],
         help="один или несколько сайтов (по умолчанию: pstu.ru)",
+    )
+    parser.add_argument(
+        "--prefix",
+        default="",
+        help="начало пути на сайте, с учётом регистра (например: wiki/Пастернак)",
     )
     parser.add_argument(
         "--limit",
@@ -50,7 +57,7 @@ def parse_args(argv=None):
         "--text",
         nargs="+",
         default=[],
-        help="оставить страницы, в тексте которых есть все эти слова",
+        help="оставить страницы, в тексте которых есть все эти слова (Перм* — слова на «Перм»)",
     )
     parser.add_argument(
         "--count",
@@ -71,18 +78,19 @@ def parse_args(argv=None):
     return parser.parse_args(argv)
 
 # Поиск по CDX-индексу: URL, дата, offset. WARC не трогаем
-def search(domain, keywords, limit):
-    key = f"search {domain} {' '.join(keywords)} {limit}"
+def search(domain, prefix, keywords, limit):
+    query = f"{domain}/{prefix.strip('/')}*"  # начало адреса сервер отбирает сам
+    key = f"search {query} {' '.join(keywords)} {limit}"
     if key in cache:
         return cache[key]
 
     found = []
     seen = set()  # один и тот же URL лежит сразу в нескольких обходах
-    filters = ["=status:200", "=mime:text/html"] 
+    filters = ["=status:200", "=mime:text/html"]
     try:
         # в сеть лезут оба вызова: за списком обходов и за страницами индекса
         fetcher = cdx_toolkit.CDXFetcher(source="cc", crawl=CRAWL)
-        for scanned, capture in enumerate(fetcher.iter(f"{domain}/*", filter=filters), start=1):
+        for scanned, capture in enumerate(fetcher.iter(query, filter=filters), start=1):
             if url_matches(capture["url"], keywords) and capture["url"] not in seen:
                 seen.add(capture["url"])
                 found.append(dict(capture))
@@ -97,7 +105,12 @@ def search(domain, keywords, limit):
 
 def url_matches(url, keywords):
     url = unquote(url).lower()
-    return all(word.lower() in url for word in keywords)
+    return all(word.lower().rstrip("*") in url for word in keywords)
+
+# Равномерная выборка: не первые страницы по алфавиту, а через одинаковый шаг по всему списку
+def sample(records, size):
+    step = max(1, len(records) // size)
+    return records[::step][:size]
 
 # Загрузка страницы из WARC: Range-запрос по offset из индекса
 def load_page(record):
@@ -107,29 +120,40 @@ def load_page(record):
 
     capture = cdx_toolkit.CaptureObject(record, warc_download_prefix="https://data.commoncrawl.org")
     try:
-        html = capture.content.decode(record.get("charset") or "utf-8", errors="replace")
+        html = capture.content
     except Exception:
         return ["—", "(не удалось загрузить)"]
 
-    soup = BeautifulSoup(html, "html.parser")
-    for tag in soup(["script", "style"]):
-        tag.decompose()  # иначе в текст попадёт код
+    # байты, а не строка: не все сайты в UTF-8, кодировку BeautifulSoup найдёт сам
+    soup = BeautifulSoup(html, "html.parser", from_encoding=record.get("charset"))
     title = soup.title.get_text(strip=True) if soup.title else "—"
-    content = soup.find("main") or soup.body or soup  # у Википедии статья лежит в <main>, без меню
+    for tag in soup(["script", "style", "noscript", "nav", "header", "footer"]):
+        tag.decompose()  # код и меню в текст не нужны
+    # у Википедии текст статьи лежит в #mw-content-text, на других сайтах часто в <main>
+    content = soup.find(id="mw-content-text") or soup.find("main") or soup.body or soup
     cache[key] = [title, content.get_text(" ", strip=True)]
     return cache[key]
 
-# Есть ли в тексте все слова (без учёта регистра)
-def has_words(text, words):
-    text = text.lower()
-    return all(word.lower() in text for word in words)
+# Слово ищется целиком без учёта регистра, а «Перм*» — любое слово, начинающееся на «Перм».
+# Поэтому «МГУ» не найдётся внутри «СамГУПС»
+def word_pattern(word):
+    if word.endswith("*"):
+        return re.compile(r"\b" + re.escape(word[:-1]) + r"\w*", re.IGNORECASE)
+    return re.compile(r"\b" + re.escape(word) + r"\b", re.IGNORECASE)
 
-# Кусок текста вокруг первого найденного слова — в нём виден контекст упоминания
+# Есть ли в тексте все слова
+def has_words(text, words):
+    return all(word_pattern(word).search(text) for word in words)
+
+# Кусок текста вокруг первого найденного слова, найденные слова выделены цветом
 def fragment(text, words):
-    lowered = text.lower()
-    positions = [lowered.find(word.lower()) for word in words if word.lower() in lowered]
+    matches = [word_pattern(word).search(text) for word in words]
+    positions = [match.start() for match in matches if match]
     start = max(0, min(positions) - 50) if positions else 0
-    return text[start:start + FRAGMENT_LENGTH]
+    piece = text[start:start + FRAGMENT_LENGTH]
+    for word in words:
+        piece = word_pattern(word).sub(lambda match: HIGHLIGHT + match.group(0) + RESET, piece)
+    return piece
 
 # Дата из CDX в читаемый вид: 20250131120000 -> 2025-01-31
 def format_date(timestamp):
@@ -166,11 +190,12 @@ def print_table(rows, show_text, total):
 
 # Сколько страниц упоминают каждое слово и сколько всего упоминаний
 def print_counts(records, words):
-    texts = [load_page(record)[1].lower() for record in records]
+    texts = [load_page(record)[1] for record in records]
     rows = []
     for word in words:
-        word = word.lower()
-        rows.append([word, sum(word in text for text in texts), sum(text.count(word) for text in texts)])
+        pattern = word_pattern(word)
+        found = [len(pattern.findall(text)) for text in texts]
+        rows.append([word, sum(1 for count in found if count), sum(found)])
     print(f"\nСтраниц проверено: {len(texts)}")
     print(tabulate(rows, headers=["Слово", "Страниц", "Упоминаний"], tablefmt="grid"))
 
@@ -192,15 +217,18 @@ def main(argv=None):
 
     records = []
     for domain in args.domain:
-        print(f"Поиск в {domain}, слова в адресе: {args.keywords or 'не заданы'}...")
-        # для проверки текста страниц берём с запасом: часть отсеется
-        found = search(domain, args.keywords, TEXT_LIMIT if words else args.limit)
+        print(f"Поиск в {domain}/{args.prefix.strip('/')}*, слова в адресе: {args.keywords or 'не заданы'}...")
+        if words:
+            # текст качать долго: из всего найденного берём равномерную выборку
+            found = sample(search(domain, args.prefix, args.keywords, SCAN_LIMIT), TEXT_LIMIT)
+        else:
+            found = search(domain, args.prefix, args.keywords, args.limit)
         if args.text:
             found = [record for record in found if has_words(load_page(record)[1], args.text)]
         records += found
         CACHE_FILE.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
 
-    rows = [build_row(record, words, show_text) for record in records[:args.limit]]
+    rows = [build_row(record, words + args.keywords, show_text) for record in records[:args.limit]]
     print_table(rows, show_text, len(records))
     if args.count:
         print_counts(records, args.count)
@@ -208,7 +236,6 @@ def main(argv=None):
         print_stats(records)
     CACHE_FILE.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
 
-# Запуск из тетрадки: run("Пастернак --domain ru.wikipedia.org") — то же, что python main.py ...
 def run(command):
     main(shlex.split(command))
 
