@@ -1,0 +1,61 @@
+# По одному URL в строке, строки с # пропускаются.
+# Ссылок больше 25 с запасом: часть корпоративных сайтов закрыта от роботов.
+
+# ---- Технологические процессы, агрегаты, материалы ----
+https://ru.wikipedia.org/wiki/Металлургия
+https://ru.wikipedia.org/wiki/Чёрная_металлургия
+https://ru.wikipedia.org/wiki/Цветная_металлургия
+https://ru.wikipedia.org/wiki/Доменная_печь
+https://ru.wikipedia.org/wiki/Доменное_производство
+https://ru.wikipedia.org/wiki/Мартеновская_печь
+https://ru.wikipedia.org/wiki/Кислородно-конвертерный_процесс
+https://ru.wikipedia.org/wiki/Дуговая_сталеплавильная_печь
+https://ru.wikipedia.org/wiki/Непрерывная_разливка_стали
+https://ru.wikipedia.org/wiki/Прокатный_стан
+https://ru.wikipedia.org/wiki/Прокатка
+https://ru.wikipedia.org/wiki/Агломерация_(металлургия)
+https://ru.wikipedia.org/wiki/Кокс
+https://ru.wikipedia.org/wiki/Коксохимическое_производство
+https://ru.wikipedia.org/wiki/Железная_руда
+https://ru.wikipedia.org/wiki/Чугун
+https://ru.wikipedia.org/wiki/Сталь
+https://ru.wikipedia.org/wiki/Ферросплавы
+https://ru.wikipedia.org/wiki/Легирование
+https://ru.wikipedia.org/wiki/Литьё_металлов
+
+# ---- Предприятия РФ ----
+https://ru.wikipedia.org/wiki/Магнитогорский_металлургический_комбинат
+https://ru.wikipedia.org/wiki/Новолипецкий_металлургический_комбинат
+https://ru.wikipedia.org/wiki/Череповецкий_металлургический_комбинат
+https://ru.wikipedia.org/wiki/Нижнетагильский_металлургический_комбинат
+https://ru.wikipedia.org/wiki/Западно-Сибирский_металлургический_комбинат
+https://ru.wikipedia.org/wiki/Челябинский_металлургический_комбинат
+https://ru.wikipedia.org/wiki/Оскольский_электрометаллургический_комбинат
+https://ru.wikipedia.org/wiki/Северсталь
+https://ru.wikipedia.org/wiki/Мечел
+https://ru.wikipedia.org/wiki/Евраз
+https://ru.wikipedia.org/wiki/Металлоинвест
+https://ru.wikipedia.org/wiki/Трубная_металлургическая_компания
+https://ru.wikipedia.org/wiki/Норильский_никель
+https://ru.wikipedia.org/wiki/Русал
+https://ru.wikipedia.org/wiki/ВСМПО-АВИСМА
+
+# ---- Ближнее зарубежье ----
+https://ru.wikipedia.org/wiki/Белорусский_металлургический_завод
+https://ru.wikipedia.org/wiki/Метинвест
+https://ru.wikipedia.org/wiki/Криворожсталь
+https://ru.wikipedia.org/wiki/Казахстанский_электролизный_завод
+
+# ---- Сайты предприятий и отраслевые издания ----
+https://nlmk.com/ru/
+https://severstal.com/rus/
+https://mmk.ru/ru/
+https://www.metalloinvest.com/
+https://www.tmk-group.ru/
+https://rusal.ru/
+https://www.mechel.ru/
+https://nornickel.ru/
+https://www.metalinfo.ru/
+https://www.metaltorg.ru/
+https://rusmet.ru/
+https://www.ruscastings.ru/

@@ -1,0 +1,240 @@
+// Граф веб-ресурсов по металлургии
+digraph metallurgy {
+	rankdir=LR
+	node [fontname=Arial shape=box]
+	"metalinfo.ru"
+	// metalinfo.ru: 100 новых логистических объектов, 15 сент, 17 сент, 18 сент, 2026 г, steel, баскетбол, закупка
+	"nlmk.com/ru"
+	// nlmk.com/ru: 3 секунд, 511 30 39 карта сайта, азия nlmk strasbourg nlmk la louvière nlmk dansteel nlmk verona nlmk clabecq, веб-сайт, группа, документы, защита, инвесторы
+	"ru.wikipedia.org/Агломерация_(металлургия)"
+	// ru.wikipedia.org/Агломерация_(металлургия): 1 2 коротич, агломерат, агломерация, воздух, газ, доменная плавка, др, екатеринбург
+	"ru.wikipedia.org/Белорусский_металлургический_завод"
+	// ru.wikipedia.org/Белорусский_металлургический_завод: 1 сентября, 10 августа, 2018 году, 2020 года, 2021 года, 2023 года, 2024 года, 26 февраля
+	"ru.wikipedia.org/ВСМПО-АВИСМА"
+	// ru.wikipedia.org/ВСМПО-АВИСМА: 1 февраля, 20 марта, 2014 года, 2015 года, 2016 года, 2021 года, 2022 года, 2023 года
+	"ru.wikipedia.org/Доменная_печь"
+	// ru.wikipedia.org/Доменная_печь: 14 октября, век, воздухонагреватели, выпуск чугуна, высокая печь, высота, горн, дата обращения
+	"ru.wikipedia.org/Доменное_производство"
+	// ru.wikipedia.org/Доменное_производство: 14 октября, век, воздухонагреватели, выпуск чугуна, высокая печь, высота, горн, дата обращения
+	"ru.wikipedia.org/Дуговая_сталеплавильная_печь"
+	// ru.wikipedia.org/Дуговая_сталеплавильная_печь: 2009 года википедия:статьи, ванна, вторая мировая война, длина дуги, доменная печь, дуговая сталеплавильная печь, использование, м
+	"ru.wikipedia.org/Евраз"
+	// ru.wikipedia.org/Евраз: 13 ноября, 16 апреля, 2012 года, 2013 года, 2021 года, 2022 года, 2025 года, 22 августа
+	"ru.wikipedia.org/Железная_руда"
+	// ru.wikipedia.org/Железная_руда: 211 дней, австралия, агломерация, бразилия, восстановимость руды, доменная печь, доменная плавка, др
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат"
+	// ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат: 2005 года, 2014 года, 2025 года, 4 июня, 8 февраля, wayback machine, антоновская площадка, архивная копия
+	"ru.wikipedia.org/Казахстанский_электролизный_завод"
+	// ru.wikipedia.org/Казахстанский_электролизный_завод: 12 января, 2007 года, 2009 года, 24 мая, алюминий казахстана, ао, вторая очередь, год
+	"ru.wikipedia.org/Кислородно-конвертерный_процесс"
+	// ru.wikipedia.org/Кислородно-конвертерный_процесс: бессемеровский конвертер, воздух, время, дополнительное топливо, дутьё, кислород, конвертер, конвертерный процесс
+	"ru.wikipedia.org/Кокс"
+	// ru.wikipedia.org/Кокс: 26-й губернатор тасмании, cox, алан, американская актриса, американский актёр, американский военный моряк, американский политик, американский политический деятель
+	"ru.wikipedia.org/Криворожсталь"
+	// ru.wikipedia.org/Криворожсталь: 2004 года, 2005 года, акции, великая отечественная война, высочайший хозяйственный суд украины, герой, годы, доменная печь
+	"ru.wikipedia.org/Литьё_металлов"
+	// ru.wikipedia.org/Литьё_металлов: 18 декабря, 2010 года википедия:статьи, 2022 года, 3 июля, август, бронза, все путь процесса литья, дата обращения
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат"
+	// ru.wikipedia.org/Магнитогорский_металлургический_комбинат: 12 апреля, 1929 года, 20 января, 2011 года, 2020 года, 2021 года, 2022 года, 2023 года
+	"ru.wikipedia.org/Мартеновская_печь"
+	// ru.wikipedia.org/Мартеновская_печь: 26 июля, displaystyle, mathrm, вертикальные каналы, воздух, дата обращения, др, известняк
+	"ru.wikipedia.org/Металлоинвест"
+	// ru.wikipedia.org/Металлоинвест: 17 февраля, 2012 года, 2020 года, 2021 года, 2022 году, 2023 года, 2024 года, 23 августа
+	"ru.wikipedia.org/Металлургия"
+	// ru.wikipedia.org/Металлургия: алюминий, век, дата обращения, доменная печь, железо, м, мартеновский процесс, медь
+	"ru.wikipedia.org/Метинвест"
+	// ru.wikipedia.org/Метинвест: 2010 года, 2021 году, 2022 года, 21 декабря, 23 декабря, 3 декабря, азовсталь, акции
+	"ru.wikipedia.org/Мечел"
+	// ru.wikipedia.org/Мечел: 13 апреля, 16 марта, 18 октября, 2008 года, 2010 году, 2013 года, 2013 году, 2014 года
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат"
+	// ru.wikipedia.org/Нижнетагильский_металлургический_комбинат: 16 сентября, 2020 года, 2022 года, 8 февраля, википедия:статья, дата обращения, доменный цех, евраз
+	"ru.wikipedia.org/Новолипецкий_металлургический_комбинат"
+	// ru.wikipedia.org/Новолипецкий_металлургический_комбинат: 2021 года, 2022 года, 22 марта, 24 июня, 24 февраля, 25 февраля, википедия:статья, год
+	"ru.wikipedia.org/Норильский_никель"
+	// ru.wikipedia.org/Норильский_никель: 1 июня, 14 апреля, 2 сентября, 2020 года, 2021 года, 2022 года, 2023 года, 2023 году
+	"ru.wikipedia.org/Оскольский_электрометаллургический_комбинат"
+	// ru.wikipedia.org/Оскольский_электрометаллургический_комбинат: 1 апреля, 12 апреля, 13 апреля, 18 апреля, 2020 года, 2022 года, 2023 года, 2025 года
+	"ru.wikipedia.org/Прокатка"
+	// ru.wikipedia.org/Прокатка: 2014 года, большая российская энциклопедия, валки, век, давление, контактная поверхность, коротич, м
+	"ru.wikipedia.org/Прокатный_стан"
+	// ru.wikipedia.org/Прокатный_стан: 2022 года, болванка, валки, валы, верхний валки, викисклад, вращение, высокая температура
+	"ru.wikipedia.org/Русал"
+	// ru.wikipedia.org/Русал: 16 августа, 2012 года, 2016 года, 2017 года, 2018 года, 2019 года, 2020 года, 2025 года
+	"ru.wikipedia.org/Северсталь"
+	// ru.wikipedia.org/Северсталь: 2014 года, 2016 года, 2020 года, 2022 года, 2023 года, 21 мая, 26 марта, 31 декабря
+	"ru.wikipedia.org/Сталь"
+	// ru.wikipedia.org/Сталь: 2 o, c, sio, бессемеровский способ, гост, графит, дата обращения, конвертер
+	"ru.wikipedia.org/Трубная_металлургическая_компания"
+	// ru.wikipedia.org/Трубная_металлургическая_компания: 16 февраля, 2020 года, 2021 года, 2022 года, 2023 года, 2024 года, 23 апреля, 23 февраля
+	"ru.wikipedia.org/Ферросплавы"
+	// ru.wikipedia.org/Ферросплавы: cr, critical usgs web sites available during government shutdown, isbn, mn, si, вид ферросплава, дешёвые пути переработки сырья, др
+	"ru.wikipedia.org/Цветная_металлургия"
+	// ru.wikipedia.org/Цветная_металлургия: 105 дней, 2010 года википедия:статьи, восточная сибирь, дешёвая энергия, доменная печь, источник, источники, лёгкие металлы
+	"ru.wikipedia.org/Челябинский_металлургический_комбинат"
+	// ru.wikipedia.org/Челябинский_металлургический_комбинат: 19 мая, 2008 году, 2023 года, 23 мая, 30 марта, isbn, владимир, война
+	"ru.wikipedia.org/Череповецкий_металлургический_комбинат"
+	// ru.wikipedia.org/Череповецкий_металлургический_комбинат: 2014 года, 2016 года, 2020 года, 2022 года, 2023 года, 21 мая, 26 марта, 31 декабря
+	"ru.wikipedia.org/Чугун"
+	// ru.wikipedia.org/Чугун: 11 октября, 14 октября, 15 октября, 2017 года, isbn, англия, век, г
+	"ru.wikipedia.org/Чёрная_металлургия"
+	// ru.wikipedia.org/Чёрная_металлургия: 20 августа, 2007 году, век, горн, дата обращения, доменные печь, древесный уголь, железо
+	"rusal.ru"
+	// rusal.ru: алюминий, инвесторы, инновации, карьера, компания, контакты, корпоративное управление, корпоративный университет
+	"rusmet.ru"
+	// rusmet.ru: 2026 дата завершения, 2026 место проведения, guoce international convention and exhibition center guoce beijing capital airport hotel видео, hyatt regency moscow petrovsky park, rusmet.ru, азиатский стальная форум, бренд, выставка moscow international recycling expo
+	"severstal.com/rus"
+	// severstal.com/rus: 19-е купонный период, акции, выплата доходов, выплаченные доходы, г, дата, девятнадцатый купонный период, доходы
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/ВСМПО-АВИСМА" [label=7]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Евраз" [label=5]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Магнитогорский_металлургический_комбинат" [label=9]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Металлоинвест" [label=6]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Мечел" [label=4]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Норильский_никель" [label=4]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=6]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Русал" [label=4]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Северсталь" [label=5]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=8]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Белорусский_металлургический_завод" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Евраз" [label=5]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Магнитогорский_металлургический_комбинат" [label=8]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Металлоинвест" [label=6]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Металлургия" [label=4]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Метинвест" [label=5]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Мечел" [label=7]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=6]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Норильский_никель" [label=8]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=5]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Русал" [label=6]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Северсталь" [label=9]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=8]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/ВСМПО-АВИСМА" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=9]
+	"ru.wikipedia.org/Доменная_печь" -> "ru.wikipedia.org/Доменное_производство" [label=30]
+	"ru.wikipedia.org/Доменная_печь" -> "ru.wikipedia.org/Дуговая_сталеплавильная_печь" [label=5]
+	"ru.wikipedia.org/Доменная_печь" -> "ru.wikipedia.org/Мартеновская_печь" [label=6]
+	"ru.wikipedia.org/Доменная_печь" -> "ru.wikipedia.org/Металлургия" [label=7]
+	"ru.wikipedia.org/Доменная_печь" -> "ru.wikipedia.org/Чугун" [label=7]
+	"ru.wikipedia.org/Доменная_печь" -> "ru.wikipedia.org/Чёрная_металлургия" [label=8]
+	"ru.wikipedia.org/Доменное_производство" -> "ru.wikipedia.org/Дуговая_сталеплавильная_печь" [label=5]
+	"ru.wikipedia.org/Доменное_производство" -> "ru.wikipedia.org/Мартеновская_печь" [label=6]
+	"ru.wikipedia.org/Доменное_производство" -> "ru.wikipedia.org/Металлургия" [label=7]
+	"ru.wikipedia.org/Доменное_производство" -> "ru.wikipedia.org/Чугун" [label=7]
+	"ru.wikipedia.org/Доменное_производство" -> "ru.wikipedia.org/Чёрная_металлургия" [label=8]
+	"ru.wikipedia.org/Дуговая_сталеплавильная_печь" -> "ru.wikipedia.org/Мартеновская_печь" [label=7]
+	"ru.wikipedia.org/Дуговая_сталеплавильная_печь" -> "ru.wikipedia.org/Металлургия" [label=4]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Магнитогорский_металлургический_комбинат" [label=7]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Металлоинвест" [label=6]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Метинвест" [label=4]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Мечел" [label=7]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Норильский_никель" [label=8]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Русал" [label=8]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Северсталь" [label=6]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=9]
+	"ru.wikipedia.org/Евраз" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=6]
+	"ru.wikipedia.org/Железная_руда" -> "ru.wikipedia.org/Металлургия" [label=5]
+	"ru.wikipedia.org/Железная_руда" -> "ru.wikipedia.org/Чугун" [label=4]
+	"ru.wikipedia.org/Железная_руда" -> "ru.wikipedia.org/Чёрная_металлургия" [label=5]
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" -> "ru.wikipedia.org/Магнитогорский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" -> "ru.wikipedia.org/Мечел" [label=6]
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=4]
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" -> "ru.wikipedia.org/Русал" [label=5]
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" -> "ru.wikipedia.org/Северсталь" [label=4]
+	"ru.wikipedia.org/Западно-Сибирский_металлургический_комбинат" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Казахстанский_электролизный_завод" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Кислородно-конвертерный_процесс" -> "ru.wikipedia.org/Мартеновская_печь" [label=5]
+	"ru.wikipedia.org/Кислородно-конвертерный_процесс" -> "ru.wikipedia.org/Сталь" [label=7]
+	"ru.wikipedia.org/Криворожсталь" -> "ru.wikipedia.org/Магнитогорский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/Криворожсталь" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Криворожсталь" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Металлоинвест" [label=7]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Метинвест" [label=5]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Мечел" [label=8]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" [label=6]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=7]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Норильский_никель" [label=8]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=9]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Русал" [label=8]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Северсталь" [label=8]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=9]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=8]
+	"ru.wikipedia.org/Магнитогорский_металлургический_комбинат" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=8]
+	"ru.wikipedia.org/Мартеновская_печь" -> "ru.wikipedia.org/Металлургия" [label=5]
+	"ru.wikipedia.org/Мартеновская_печь" -> "ru.wikipedia.org/Сталь" [label=4]
+	"ru.wikipedia.org/Мартеновская_печь" -> "ru.wikipedia.org/Чугун" [label=6]
+	"ru.wikipedia.org/Мартеновская_печь" -> "ru.wikipedia.org/Чёрная_металлургия" [label=5]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Мечел" [label=4]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Норильский_никель" [label=8]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=4]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Русал" [label=7]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Северсталь" [label=6]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=7]
+	"ru.wikipedia.org/Металлоинвест" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=6]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Сталь" [label=7]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Ферросплавы" [label=4]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Цветная_металлургия" [label=7]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Чугун" [label=10]
+	"ru.wikipedia.org/Металлургия" -> "ru.wikipedia.org/Чёрная_металлургия" [label=13]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Мечел" [label=4]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Норильский_никель" [label=5]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=4]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Северсталь" [label=4]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=5]
+	"ru.wikipedia.org/Метинвест" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=4]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Норильский_никель" [label=6]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Русал" [label=9]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Северсталь" [label=7]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=7]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/Мечел" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=7]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Новолипецкий_металлургический_комбинат" [label=8]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Норильский_никель" [label=5]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=5]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Русал" [label=4]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Северсталь" [label=7]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=8]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=7]
+	"ru.wikipedia.org/Нижнетагильский_металлургический_комбинат" -> "ru.wikipedia.org/Чугун" [label=5]
+	"ru.wikipedia.org/Новолипецкий_металлургический_комбинат" -> "ru.wikipedia.org/Норильский_никель" [label=5]
+	"ru.wikipedia.org/Новолипецкий_металлургический_комбинат" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=5]
+	"ru.wikipedia.org/Новолипецкий_металлургический_комбинат" -> "ru.wikipedia.org/Северсталь" [label=5]
+	"ru.wikipedia.org/Новолипецкий_металлургический_комбинат" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=7]
+	"ru.wikipedia.org/Новолипецкий_металлургический_комбинат" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=5]
+	"ru.wikipedia.org/Норильский_никель" -> "ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" [label=5]
+	"ru.wikipedia.org/Норильский_никель" -> "ru.wikipedia.org/Русал" [label=8]
+	"ru.wikipedia.org/Норильский_никель" -> "ru.wikipedia.org/Северсталь" [label=9]
+	"ru.wikipedia.org/Норильский_никель" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=9]
+	"ru.wikipedia.org/Норильский_никель" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=9]
+	"ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" -> "ru.wikipedia.org/Северсталь" [label=6]
+	"ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=5]
+	"ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" -> "ru.wikipedia.org/Челябинский_металлургический_комбинат" [label=6]
+	"ru.wikipedia.org/Оскольский_электрометаллургический_комбинат" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=6]
+	"ru.wikipedia.org/Прокатка" -> "ru.wikipedia.org/Прокатный_стан" [label=5]
+	"ru.wikipedia.org/Прокатка" -> "ru.wikipedia.org/Чугун" [label=4]
+	"ru.wikipedia.org/Прокатка" -> "ru.wikipedia.org/Чёрная_металлургия" [label=4]
+	"ru.wikipedia.org/Русал" -> "ru.wikipedia.org/Северсталь" [label=7]
+	"ru.wikipedia.org/Русал" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=7]
+	"ru.wikipedia.org/Русал" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=7]
+	"ru.wikipedia.org/Русал" -> "ru.wikipedia.org/Чугун" [label=4]
+	"ru.wikipedia.org/Северсталь" -> "ru.wikipedia.org/Трубная_металлургическая_компания" [label=9]
+	"ru.wikipedia.org/Северсталь" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=30]
+	"ru.wikipedia.org/Сталь" -> "ru.wikipedia.org/Чугун" [label=8]
+	"ru.wikipedia.org/Сталь" -> "ru.wikipedia.org/Чёрная_металлургия" [label=7]
+	"ru.wikipedia.org/Трубная_металлургическая_компания" -> "ru.wikipedia.org/Череповецкий_металлургический_комбинат" [label=9]
+	"ru.wikipedia.org/Ферросплавы" -> "ru.wikipedia.org/Чугун" [label=4]
+	"ru.wikipedia.org/Ферросплавы" -> "ru.wikipedia.org/Чёрная_металлургия" [label=5]
+	"ru.wikipedia.org/Цветная_металлургия" -> "ru.wikipedia.org/Чёрная_металлургия" [label=5]
+	"ru.wikipedia.org/Челябинский_металлургический_комбинат" -> "ru.wikipedia.org/Чугун" [label=5]
+	"ru.wikipedia.org/Челябинский_металлургический_комбинат" -> "ru.wikipedia.org/Чёрная_металлургия" [label=4]
+	"ru.wikipedia.org/Чугун" -> "ru.wikipedia.org/Чёрная_металлургия" [label=10]
+}

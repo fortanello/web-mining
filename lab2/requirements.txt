@@ -1,0 +1,7 @@
+scrapy>=2.11
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+graphviz>=0.20
+rutermextract>=0.3
+pymorphy3>=2.0
