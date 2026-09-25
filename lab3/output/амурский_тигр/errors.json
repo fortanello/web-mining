@@ -1,0 +1,7 @@
+[
+  {
+    "stage": "potd-image",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/NE_Lac_Bab_Louta_Tazekka_Nov25_A7CR_09270-4_HDR1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "error": "HTTPError: 403"
+  }
+]
