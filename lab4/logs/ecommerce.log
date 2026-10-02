@@ -391,3 +391,194 @@
 2026-10-02 21:56:07 [scrapy-playwright] INFO: Closing download handler
 2026-10-02 21:56:07 [scrapy-playwright] INFO: Closing download handler
 2026-10-02 21:56:08 [scrapy-playwright] INFO: Closing browser
+2026-10-02 22:39:05 [scrapy.utils.log] INFO: Scrapy 2.19.0 started (bot: webmining)
+2026-10-02 22:39:05 [scrapy.utils.log] INFO: Versions:
+{'lxml': '5.3.0',
+ 'libxml2': '2.11.7',
+ 'cssselect': '1.5.0',
+ 'parsel': '1.11.0',
+ 'w3lib': '2.4.1',
+ 'Twisted': '26.4.0',
+ 'Python': '3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 '
+           '64 bit (AMD64)]',
+ 'pyOpenSSL': '26.4.0 (OpenSSL 4.0.2 25 Aug 2026)',
+ 'cryptography': '50.0.1',
+ 'Platform': 'Windows-11-10.0.26200-SP0'}
+2026-10-02 22:39:05 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-10-02 22:39:05 [scrapy.extensions.telnet] INFO: Telnet Password: 0c1cd0705407080f
+2026-10-02 22:39:05 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logcount.LogCount',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.remote_control.RemoteControl']
+2026-10-02 22:39:05 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'webmining',
+ 'CONCURRENT_REQUESTS': 8,
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 2,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 30,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'FEED_EXPORT_INDENT': 2,
+ 'LOG_FILE': 'c:\\projects\\web-mining\\lab4\\logs\\ecommerce.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'webmining.spiders',
+ 'RETRY_HTTP_CODES': [429, 500, 502, 503, 504],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['webmining.spiders'],
+ 'USER_AGENT': 'web-mining-lab4/1.0 (educational project; contact: '
+               'student@example.com)'}
+2026-10-02 22:39:06 [scrapy-playwright] INFO: Started loop on separate thread: <ProactorEventLoop running=True closed=False debug=False>
+2026-10-02 22:39:06 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-10-02 22:39:06 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware',
+ 'scrapy.spidermiddlewares.metacopy.MetaCopyDetectionMiddleware']
+2026-10-02 22:39:06 [scrapy.middleware] INFO: Enabled item pipelines:
+['webmining.pipelines.CleaningPipeline',
+ 'webmining.pipelines.DuplicationPipeline',
+ 'webmining.pipelines.ValidationPipeline']
+2026-10-02 22:39:06 [scrapy.core.engine] INFO: Spider opened
+2026-10-02 22:39:06 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-10-02 22:39:06 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-10-02 22:39:06 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 22:39:06 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 22:39:06 [scrapy.extensions.remote_control] INFO: Remote control HTTP server listening on port 55197 (job 32804-e03fd3b94e1346ebbbc2823bb2864183)
+2026-10-02 22:39:07 [scrapy-playwright] INFO: Launching browser chromium
+2026-10-02 22:39:08 [scrapy-playwright] INFO: Browser chromium launched
+2026-10-02 22:39:40 [scrapy-playwright] WARNING: Closing page due to failed request: <GET https://webscraper.io/test-sites/e-commerce/scroll/laptops> exc_type=<class 'playwright._impl._errors.TimeoutError'> exc_msg=Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".thumbnail") to be visible
+Traceback (most recent call last):
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\scrapy_playwright\handler.py", line 491, in _download_request_with_retry
+    return await self._download_request_with_page(request, page, spider)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\scrapy_playwright\handler.py", line 539, in _download_request_with_page
+    await self._apply_page_methods(page, request, spider)
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\scrapy_playwright\handler.py", line 701, in _apply_page_methods
+    pm.result = await _maybe_await(method(*pm.args, **pm.kwargs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\scrapy_playwright\_utils.py", line 24, in _maybe_await
+    return await obj
+           ^^^^^^^^^
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\async_api\_generated.py", line 9085, in wait_for_selector
+    await self._impl_obj.wait_for_selector(
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_page.py", line 429, in wait_for_selector
+    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_frame.py", line 395, in wait_for_selector
+    await self._channel.send(
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".thumbnail") to be visible
+
+2026-10-02 22:39:40 [ecommerce] ERROR: Запрос не удался: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".thumbnail") to be visible
+
+2026-10-02 22:39:44 [ecommerce] INFO: Карточек на странице: 6 (https://webscraper.io/test-sites/e-commerce/ajax/computers/laptops)
+2026-10-02 22:39:47 [ecommerce] INFO: Карточек на странице: 6 (https://webscraper.io/test-sites/e-commerce/ajax/computers/tablets)
+2026-10-02 22:39:49 [ecommerce] INFO: Карточек на странице: 6 (https://webscraper.io/test-sites/e-commerce/ajax/phones/touch)
+2026-10-02 22:39:54 [ecommerce] INFO: Карточек на странице: 20 (https://books.toscrape.com/catalogue/page-1.html)
+2026-10-02 22:39:56 [ecommerce] INFO: Карточек на странице: 20 (https://books.toscrape.com/catalogue/page-2.html)
+2026-10-02 22:39:59 [ecommerce] INFO: Карточек на странице: 20 (https://books.toscrape.com/catalogue/page-3.html)
+2026-10-02 22:40:02 [ecommerce] INFO: Карточек на странице: 20 (https://books.toscrape.com/catalogue/page-4.html)
+2026-10-02 22:40:05 [ecommerce] INFO: Карточек на странице: 20 (https://books.toscrape.com/catalogue/page-5.html)
+2026-10-02 22:40:06 [scrapy.extensions.logstats] INFO: Crawled 10 pages (at 10 pages/min), scraped 118 items (at 118 items/min)
+2026-10-02 22:40:08 [ecommerce] INFO: Карточек на странице: 20 (https://books.toscrape.com/catalogue/page-6.html)
+2026-10-02 22:40:08 [scrapy.core.engine] INFO: Closing spider (finished)
+2026-10-02 22:40:08 [webmining.pipelines] INFO: ValidationPipeline: отброшено записей — 0
+2026-10-02 22:40:08 [webmining.pipelines] INFO: DuplicationPipeline: отброшено дубликатов — 0
+2026-10-02 22:40:08 [webmining.pipelines] INFO: CleaningPipeline: поправлено полей — 1
+2026-10-02 22:40:08 [ecommerce] INFO: Собрано записей: 138 (нужно не менее 100, требование выполнено: да)
+2026-10-02 22:40:08 [scrapy.extensions.feedexport] INFO: Stored json feed (138 items) in: c:\projects\web-mining\lab4\output\prices.json
+2026-10-02 22:40:08 [scrapy.extensions.feedexport] INFO: Stored csv feed (138 items) in: c:\projects\web-mining\lab4\output\prices.csv
+2026-10-02 22:40:08 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/playwright._impl._errors.TimeoutError': 1,
+ 'downloader/request_bytes': 3464,
+ 'downloader/request_count': 12,
+ 'downloader/request_method_count/GET': 12,
+ 'downloader/response_bytes': 618056,
+ 'downloader/response_count': 11,
+ 'downloader/response_status_count/200': 10,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 62.10900000000038,
+ 'feedexport/success_count/FileFeedStorage': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2026, 10, 2, 17, 40, 8, 259201, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 153,
+ 'httpcompression/response_count': 1,
+ 'item_scraped_count': 138,
+ 'items_per_minute': 133.54838709677418,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 22,
+ 'log_count/WARNING': 1,
+ 'playwright/browser_count': 1,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/persistent/False': 1,
+ 'playwright/context_count/remote/False': 1,
+ 'playwright/page_count': 10,
+ 'playwright/page_count/closed': 10,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 324,
+ 'playwright/request_count/method/GET': 304,
+ 'playwright/request_count/method/POST': 20,
+ 'playwright/request_count/navigation': 10,
+ 'playwright/request_count/resource_type/document': 10,
+ 'playwright/request_count/resource_type/fetch': 16,
+ 'playwright/request_count/resource_type/font': 37,
+ 'playwright/request_count/resource_type/image': 131,
+ 'playwright/request_count/resource_type/script': 84,
+ 'playwright/request_count/resource_type/stylesheet': 30,
+ 'playwright/request_count/resource_type/xhr': 16,
+ 'playwright/response_count': 306,
+ 'playwright/response_count/method/GET': 294,
+ 'playwright/response_count/method/POST': 12,
+ 'playwright/response_count/resource_type/document': 10,
+ 'playwright/response_count/resource_type/fetch': 8,
+ 'playwright/response_count/resource_type/font': 37,
+ 'playwright/response_count/resource_type/image': 127,
+ 'playwright/response_count/resource_type/script': 78,
+ 'playwright/response_count/resource_type/stylesheet': 30,
+ 'playwright/response_count/resource_type/xhr': 16,
+ 'response_received_count': 11,
+ 'responses_per_minute': 10.64516129032258,
+ 'robotstxt/request_count': 2,
+ 'robotstxt/response_count': 2,
+ 'robotstxt/response_status_count/200': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 10,
+ 'scheduler/dequeued/memory': 10,
+ 'scheduler/enqueued': 10,
+ 'scheduler/enqueued/memory': 10,
+ 'start_time': datetime.datetime(2026, 10, 2, 17, 39, 6, 156431, tzinfo=datetime.timezone.utc)}
+2026-10-02 22:40:08 [scrapy.core.engine] INFO: Spider closed (finished)
+2026-10-02 22:40:08 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 22:40:08 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 22:40:08 [scrapy-playwright] INFO: Closing browser

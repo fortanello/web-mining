@@ -1,40 +1,139 @@
 title,url,price,currency,rating,reviews,source
-Asus VivoBook X441NA-GA190,https://webscraper.io/test-sites/e-commerce/scroll/product/60,295.99,USD,,,testshop
-Prestigio SmartBook 133S Dark Grey,https://webscraper.io/test-sites/e-commerce/scroll/product/61,299.0,USD,,,testshop
-Prestigio SmartBook 133S Gold,https://webscraper.io/test-sites/e-commerce/scroll/product/62,299.0,USD,,,testshop
-Aspire E1-510,https://webscraper.io/test-sites/e-commerce/scroll/product/32,306.99,USD,,,testshop
-Lenovo V110-15IAP,https://webscraper.io/test-sites/e-commerce/scroll/product/63,321.94,USD,,,testshop
-Lenovo V110-15IAP,https://webscraper.io/test-sites/e-commerce/scroll/product/64,356.49,USD,,,testshop
-Hewlett Packard 250 G6 Dark Ash Silver,https://webscraper.io/test-sites/e-commerce/scroll/product/65,364.46,USD,,,testshop
-Acer Aspire 3 A315-31 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/66,372.7,USD,,,testshop
-Acer Aspire A315-31-C33J,https://webscraper.io/test-sites/e-commerce/scroll/product/67,379.94,USD,,,testshop
-Acer Aspire ES1-572 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/68,379.95,USD,,,testshop
-Acer Aspire 3 A315-31 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/69,391.48,USD,,,testshop
-Acer Aspire 3 A315-21,https://webscraper.io/test-sites/e-commerce/scroll/product/70,393.88,USD,,,testshop
-Asus VivoBook Max,https://webscraper.io/test-sites/e-commerce/scroll/product/45,399.0,USD,,,testshop
-Asus VivoBook E502NA-GO022T Dark Blue,https://webscraper.io/test-sites/e-commerce/scroll/product/71,399.99,USD,,,testshop
-Lenovo ThinkPad E31-80,https://webscraper.io/test-sites/e-commerce/scroll/product/72,404.23,USD,,,testshop
-Acer Aspire 3 A315-31 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/73,408.98,USD,,,testshop
-Lenovo V110-15ISK,https://webscraper.io/test-sites/e-commerce/scroll/product/74,409.63,USD,,,testshop
-Acer Aspire ES1-732 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/75,410.46,USD,,,testshop
-Asus VivoBook 15 X540NA-GQ026T,https://webscraper.io/test-sites/e-commerce/scroll/product/76,410.66,USD,,,testshop
-Packard 255 G2,https://webscraper.io/test-sites/e-commerce/scroll/product/31,416.99,USD,,,testshop
-Asus EeeBook R416NA-FA014T,https://webscraper.io/test-sites/e-commerce/scroll/product/77,433.3,USD,,,testshop
-Acer Aspire 3 A315-51,https://webscraper.io/test-sites/e-commerce/scroll/product/78,436.29,USD,,,testshop
-Acer Aspire ES1-572 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/79,436.29,USD,,,testshop
-Acer Extensa 15 (2540) Black,https://webscraper.io/test-sites/e-commerce/scroll/product/80,439.73,USD,,,testshop
-Acer Aspire ES1-572 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/81,454.62,USD,,,testshop
-Lenovo V110-15ISK,https://webscraper.io/test-sites/e-commerce/scroll/product/82,454.73,USD,,,testshop
-Acer Aspire A315-51-33TG,https://webscraper.io/test-sites/e-commerce/scroll/product/83,457.38,USD,,,testshop
-Lenovo V110-15IKB,https://webscraper.io/test-sites/e-commerce/scroll/product/84,465.95,USD,,,testshop
-Asus VivoBook 15 X540UA-DM260 Chocolate Black,https://webscraper.io/test-sites/e-commerce/scroll/product/85,468.56,USD,,,testshop
-Acer Aspire ES1-572 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/86,469.1,USD,,,testshop
-Lenovo V510 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/87,484.23,USD,,,testshop
-Acer Aspire ES1-572 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/88,485.9,USD,,,testshop
-Lenovo V510 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/89,487.8,USD,,,testshop
-Acer Swift 1 SF113-31 Silver,https://webscraper.io/test-sites/e-commerce/scroll/product/90,488.64,USD,,,testshop
-Dell Vostro 15,https://webscraper.io/test-sites/e-commerce/scroll/product/46,488.78,USD,,,testshop
-Acer Aspire 3 A315-51 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/91,494.71,USD,,,testshop
-Dell Vostro 15 (3568) Red,https://webscraper.io/test-sites/e-commerce/scroll/product/92,497.17,USD,,,testshop
-Lenovo V510 Black,https://webscraper.io/test-sites/e-commerce/scroll/product/93,498.23,USD,,,testshop
-HP 250 G3,https://webscraper.io/test-sites/e-commerce/scroll/product/42,520.99,USD,,,testshop
+Asus VivoBook X441NA-GA190,https://webscraper.io/test-sites/e-commerce/ajax/product/60,295.99,USD,,,testshop-ajax
+Prestigio SmartBook 133S Dark Grey,https://webscraper.io/test-sites/e-commerce/ajax/product/61,299.0,USD,,,testshop-ajax
+Prestigio SmartBook 133S Gold,https://webscraper.io/test-sites/e-commerce/ajax/product/62,299.0,USD,,,testshop-ajax
+Aspire E1-510,https://webscraper.io/test-sites/e-commerce/ajax/product/32,306.99,USD,,,testshop-ajax
+Lenovo V110-15IAP,https://webscraper.io/test-sites/e-commerce/ajax/product/63,321.94,USD,,,testshop-ajax
+Lenovo V110-15IAP,https://webscraper.io/test-sites/e-commerce/ajax/product/64,356.49,USD,,,testshop-ajax
+Lenovo IdeaTab,https://webscraper.io/test-sites/e-commerce/ajax/product/10,69.99,USD,,,testshop-ajax
+IdeaTab A3500L,https://webscraper.io/test-sites/e-commerce/ajax/product/15,88.99,USD,,,testshop-ajax
+Acer Iconia,https://webscraper.io/test-sites/e-commerce/ajax/product/11,96.99,USD,,,testshop-ajax
+Galaxy Tab 3,https://webscraper.io/test-sites/e-commerce/ajax/product/18,97.99,USD,,,testshop-ajax
+Iconia B1-730HD,https://webscraper.io/test-sites/e-commerce/ajax/product/27,99.99,USD,,,testshop-ajax
+Memo Pad HD 7,https://webscraper.io/test-sites/e-commerce/ajax/product/23,101.99,USD,,,testshop-ajax
+Nokia 123,https://webscraper.io/test-sites/e-commerce/ajax/product/1,24.99,USD,,,testshop-ajax
+LG Optimus,https://webscraper.io/test-sites/e-commerce/ajax/product/2,57.99,USD,,,testshop-ajax
+Samsung Galaxy,https://webscraper.io/test-sites/e-commerce/ajax/product/3,93.99,USD,,,testshop-ajax
+Nokia X,https://webscraper.io/test-sites/e-commerce/ajax/product/4,109.99,USD,,,testshop-ajax
+Sony Xperia,https://webscraper.io/test-sites/e-commerce/ajax/product/5,118.99,USD,,,testshop-ajax
+Ubuntu Edge,https://webscraper.io/test-sites/e-commerce/ajax/product/6,499.99,USD,,,testshop-ajax
+A Light in the Attic,https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html,51.77,GBP,3.0,,books
+Tipping the Velvet,https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html,53.74,GBP,1.0,,books
+Soumission,https://books.toscrape.com/catalogue/soumission_998/index.html,50.1,GBP,1.0,,books
+Sharp Objects,https://books.toscrape.com/catalogue/sharp-objects_997/index.html,47.82,GBP,4.0,,books
+Sapiens: A Brief History of Humankind,https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html,54.23,GBP,5.0,,books
+The Requiem Red,https://books.toscrape.com/catalogue/the-requiem-red_995/index.html,22.65,GBP,1.0,,books
+The Dirty Little Secrets of Getting Your Dream Job,https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html,33.34,GBP,4.0,,books
+"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html,17.93,GBP,3.0,,books
+The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,https://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html,22.6,GBP,4.0,,books
+The Black Maria,https://books.toscrape.com/catalogue/the-black-maria_991/index.html,52.15,GBP,1.0,,books
+"Starving Hearts (Triangular Trade Trilogy, #1)",https://books.toscrape.com/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html,13.99,GBP,2.0,,books
+Shakespeare's Sonnets,https://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html,20.66,GBP,4.0,,books
+Set Me Free,https://books.toscrape.com/catalogue/set-me-free_988/index.html,17.46,GBP,5.0,,books
+Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),https://books.toscrape.com/catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html,52.29,GBP,5.0,,books
+Rip it Up and Start Again,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_986/index.html,35.02,GBP,5.0,,books
+"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",https://books.toscrape.com/catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html,57.25,GBP,3.0,,books
+Olio,https://books.toscrape.com/catalogue/olio_984/index.html,23.88,GBP,1.0,,books
+Mesaerion: The Best Science Fiction Stories 1800-1849,https://books.toscrape.com/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html,37.59,GBP,1.0,,books
+Libertarianism for Beginners,https://books.toscrape.com/catalogue/libertarianism-for-beginners_982/index.html,51.33,GBP,2.0,,books
+It's Only the Himalayas,https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html,45.17,GBP,2.0,,books
+In Her Wake,https://books.toscrape.com/catalogue/in-her-wake_980/index.html,12.84,GBP,1.0,,books
+How Music Works,https://books.toscrape.com/catalogue/how-music-works_979/index.html,37.32,GBP,2.0,,books
+"Foolproof Preserving: A Guide to Small Batch Jams, Jellies, Pickles, Condiments, and More: A Foolproof Guide to Making Small Batch Jams, Jellies, Pickles, Condiments, and More",https://books.toscrape.com/catalogue/foolproof-preserving-a-guide-to-small-batch-jams-jellies-pickles-condiments-and-more-a-foolproof-guide-to-making-small-batch-jams-jellies-pickles-condiments-and-more_978/index.html,30.52,GBP,3.0,,books
+Chase Me (Paris Nights #2),https://books.toscrape.com/catalogue/chase-me-paris-nights-2_977/index.html,25.27,GBP,5.0,,books
+Black Dust,https://books.toscrape.com/catalogue/black-dust_976/index.html,34.53,GBP,5.0,,books
+Birdsong: A Story in Pictures,https://books.toscrape.com/catalogue/birdsong-a-story-in-pictures_975/index.html,54.64,GBP,3.0,,books
+America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana,https://books.toscrape.com/catalogue/americas-cradle-of-quarterbacks-western-pennsylvanias-football-factory-from-johnny-unitas-to-joe-montana_974/index.html,22.5,GBP,3.0,,books
+Aladdin and His Wonderful Lamp,https://books.toscrape.com/catalogue/aladdin-and-his-wonderful-lamp_973/index.html,53.13,GBP,3.0,,books
+Worlds Elsewhere: Journeys Around Shakespeare's Globe,https://books.toscrape.com/catalogue/worlds-elsewhere-journeys-around-shakespeares-globe_972/index.html,40.3,GBP,5.0,,books
+Wall and Piece,https://books.toscrape.com/catalogue/wall-and-piece_971/index.html,44.18,GBP,4.0,,books
+The Four Agreements: A Practical Guide to Personal Freedom,https://books.toscrape.com/catalogue/the-four-agreements-a-practical-guide-to-personal-freedom_970/index.html,17.66,GBP,5.0,,books
+The Five Love Languages: How to Express Heartfelt Commitment to Your Mate,https://books.toscrape.com/catalogue/the-five-love-languages-how-to-express-heartfelt-commitment-to-your-mate_969/index.html,31.05,GBP,3.0,,books
+The Elephant Tree,https://books.toscrape.com/catalogue/the-elephant-tree_968/index.html,23.82,GBP,5.0,,books
+The Bear and the Piano,https://books.toscrape.com/catalogue/the-bear-and-the-piano_967/index.html,36.89,GBP,1.0,,books
+Sophie's World,https://books.toscrape.com/catalogue/sophies-world_966/index.html,15.94,GBP,5.0,,books
+Penny Maybe,https://books.toscrape.com/catalogue/penny-maybe_965/index.html,33.29,GBP,3.0,,books
+Maude (1883-1993):She Grew Up with the country,https://books.toscrape.com/catalogue/maude-1883-1993she-grew-up-with-the-country_964/index.html,18.02,GBP,2.0,,books
+"In a Dark, Dark Wood",https://books.toscrape.com/catalogue/in-a-dark-dark-wood_963/index.html,19.63,GBP,1.0,,books
+Behind Closed Doors,https://books.toscrape.com/catalogue/behind-closed-doors_962/index.html,52.22,GBP,4.0,,books
+You can't bury them all: Poems,https://books.toscrape.com/catalogue/you-cant-bury-them-all-poems_961/index.html,33.63,GBP,2.0,,books
+Slow States of Collapse: Poems,https://books.toscrape.com/catalogue/slow-states-of-collapse-poems_960/index.html,57.31,GBP,3.0,,books
+Reasons to Stay Alive,https://books.toscrape.com/catalogue/reasons-to-stay-alive_959/index.html,26.41,GBP,2.0,,books
+Private Paris (Private #10),https://books.toscrape.com/catalogue/private-paris-private-10_958/index.html,47.61,GBP,5.0,,books
+#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.,https://books.toscrape.com/catalogue/higherselfie-wake-up-your-life-free-your-soul-find-your-tribe_957/index.html,23.11,GBP,5.0,,books
+Without Borders (Wanderlove #1),https://books.toscrape.com/catalogue/without-borders-wanderlove-1_956/index.html,45.07,GBP,2.0,,books
+When We Collided,https://books.toscrape.com/catalogue/when-we-collided_955/index.html,31.77,GBP,1.0,,books
+"We Love You, Charlie Freeman",https://books.toscrape.com/catalogue/we-love-you-charlie-freeman_954/index.html,50.27,GBP,5.0,,books
+Untitled Collection: Sabbath Poems 2014,https://books.toscrape.com/catalogue/untitled-collection-sabbath-poems-2014_953/index.html,14.27,GBP,4.0,,books
+"Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails & Other Wonders of the Urban Wilderness",https://books.toscrape.com/catalogue/unseen-city-the-majesty-of-pigeons-the-discreet-charm-of-snails-other-wonders-of-the-urban-wilderness_952/index.html,44.18,GBP,4.0,,books
+Unicorn Tracks,https://books.toscrape.com/catalogue/unicorn-tracks_951/index.html,18.78,GBP,3.0,,books
+"Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink",https://books.toscrape.com/catalogue/unbound-how-eight-technologies-made-us-human-transformed-society-and-brought-our-world-to-the-brink_950/index.html,25.52,GBP,1.0,,books
+Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2),https://books.toscrape.com/catalogue/tsubasa-world-chronicle-2-tsubasa-world-chronicle-2_949/index.html,16.28,GBP,1.0,,books
+Throwing Rocks at the Google Bus: How Growth Became the Enemy of Prosperity,https://books.toscrape.com/catalogue/throwing-rocks-at-the-google-bus-how-growth-became-the-enemy-of-prosperity_948/index.html,31.12,GBP,3.0,,books
+This One Summer,https://books.toscrape.com/catalogue/this-one-summer_947/index.html,19.49,GBP,4.0,,books
+Thirst,https://books.toscrape.com/catalogue/thirst_946/index.html,17.27,GBP,5.0,,books
+The Torch Is Passed: A Harding Family Story,https://books.toscrape.com/catalogue/the-torch-is-passed-a-harding-family-story_945/index.html,19.09,GBP,1.0,,books
+The Secret of Dreadwillow Carse,https://books.toscrape.com/catalogue/the-secret-of-dreadwillow-carse_944/index.html,56.13,GBP,1.0,,books
+"The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!",https://books.toscrape.com/catalogue/the-pioneer-woman-cooks-dinnertime-comfort-classics-freezer-food-16-minute-meals-and-other-delicious-ways-to-solve-supper_943/index.html,56.41,GBP,1.0,,books
+The Past Never Ends,https://books.toscrape.com/catalogue/the-past-never-ends_942/index.html,56.5,GBP,4.0,,books
+The Natural History of Us (The Fine Art of Pretending #2),https://books.toscrape.com/catalogue/the-natural-history-of-us-the-fine-art-of-pretending-2_941/index.html,45.22,GBP,3.0,,books
+The Nameless City (The Nameless City #1),https://books.toscrape.com/catalogue/the-nameless-city-the-nameless-city-1_940/index.html,38.16,GBP,4.0,,books
+The Murder That Never Was (Forensic Instincts #5),https://books.toscrape.com/catalogue/the-murder-that-never-was-forensic-instincts-5_939/index.html,54.11,GBP,3.0,,books
+The Most Perfect Thing: Inside (and Outside) a Bird's Egg,https://books.toscrape.com/catalogue/the-most-perfect-thing-inside-and-outside-a-birds-egg_938/index.html,42.96,GBP,4.0,,books
+"The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy",https://books.toscrape.com/catalogue/the-mindfulness-and-acceptance-workbook-for-anxiety-a-guide-to-breaking-free-from-anxiety-phobias-and-worry-using-acceptance-and-commitment-therapy_937/index.html,23.89,GBP,4.0,,books
+The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing,https://books.toscrape.com/catalogue/the-life-changing-magic-of-tidying-up-the-japanese-art-of-decluttering-and-organizing_936/index.html,16.77,GBP,3.0,,books
+"The Inefficiency Assassin: Time Management Tactics for Working Smarter, Not Longer",https://books.toscrape.com/catalogue/the-inefficiency-assassin-time-management-tactics-for-working-smarter-not-longer_935/index.html,20.59,GBP,5.0,,books
+The Gutsy Girl: Escapades for Your Life of Epic Adventure,https://books.toscrape.com/catalogue/the-gutsy-girl-escapades-for-your-life-of-epic-adventure_934/index.html,37.13,GBP,1.0,,books
+The Electric Pencil: Drawings from Inside State Hospital No. 3,https://books.toscrape.com/catalogue/the-electric-pencil-drawings-from-inside-state-hospital-no-3_933/index.html,56.06,GBP,1.0,,books
+The Death of Humanity: and the Case for Life,https://books.toscrape.com/catalogue/the-death-of-humanity-and-the-case-for-life_932/index.html,58.11,GBP,4.0,,books
+"The Bulletproof Diet: Lose up to a Pound a Day, Reclaim Energy and Focus, Upgrade Your Life",https://books.toscrape.com/catalogue/the-bulletproof-diet-lose-up-to-a-pound-a-day-reclaim-energy-and-focus-upgrade-your-life_931/index.html,49.05,GBP,3.0,,books
+The Art Forger,https://books.toscrape.com/catalogue/the-art-forger_930/index.html,40.76,GBP,3.0,,books
+The Age of Genius: The Seventeenth Century and the Birth of the Modern Mind,https://books.toscrape.com/catalogue/the-age-of-genius-the-seventeenth-century-and-the-birth-of-the-modern-mind_929/index.html,19.73,GBP,1.0,,books
+The Activist's Tao Te Ching: Ancient Advice for a Modern Revolution,https://books.toscrape.com/catalogue/the-activists-tao-te-ching-ancient-advice-for-a-modern-revolution_928/index.html,32.24,GBP,5.0,,books
+Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up,https://books.toscrape.com/catalogue/spark-joy-an-illustrated-master-class-on-the-art-of-organizing-and-tidying-up_927/index.html,41.83,GBP,4.0,,books
+Soul Reader,https://books.toscrape.com/catalogue/soul-reader_926/index.html,39.58,GBP,2.0,,books
+Security,https://books.toscrape.com/catalogue/security_925/index.html,39.25,GBP,2.0,,books
+"Saga, Volume 6 (Saga (Collected Editions) #6)",https://books.toscrape.com/catalogue/saga-volume-6-saga-collected-editions-6_924/index.html,25.02,GBP,3.0,,books
+"Saga, Volume 5 (Saga (Collected Editions) #5)",https://books.toscrape.com/catalogue/saga-volume-5-saga-collected-editions-5_923/index.html,51.04,GBP,2.0,,books
+Reskilling America: Learning to Labor in the Twenty-First Century,https://books.toscrape.com/catalogue/reskilling-america-learning-to-labor-in-the-twenty-first-century_922/index.html,19.83,GBP,2.0,,books
+"Rat Queens, Vol. 3: Demons (Rat Queens (Collected Editions) #11-15)",https://books.toscrape.com/catalogue/rat-queens-vol-3-demons-rat-queens-collected-editions-11-15_921/index.html,50.4,GBP,3.0,,books
+"Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",https://books.toscrape.com/catalogue/princess-jellyfish-2-in-1-omnibus-vol-01-princess-jellyfish-2-in-1-omnibus-1_920/index.html,13.61,GBP,5.0,,books
+Princess Between Worlds (Wide-Awake Princess #5),https://books.toscrape.com/catalogue/princess-between-worlds-wide-awake-princess-5_919/index.html,13.34,GBP,5.0,,books
+"Pop Gun War, Volume 1: Gift",https://books.toscrape.com/catalogue/pop-gun-war-volume-1-gift_918/index.html,18.97,GBP,1.0,,books
+"Political Suicide: Missteps, Peccadilloes, Bad Calls, Backroom Hijinx, Sordid Pasts, Rotten Breaks, and Just Plain Dumb Mistakes in the Annals of American Politics",https://books.toscrape.com/catalogue/political-suicide-missteps-peccadilloes-bad-calls-backroom-hijinx-sordid-pasts-rotten-breaks-and-just-plain-dumb-mistakes-in-the-annals-of-american-politics_917/index.html,36.28,GBP,2.0,,books
+Patience,https://books.toscrape.com/catalogue/patience_916/index.html,10.16,GBP,3.0,,books
+"Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)",https://books.toscrape.com/catalogue/outcast-vol-1-a-darkness-surrounds-him-outcast-1_915/index.html,15.44,GBP,4.0,,books
+orange: The Complete Collection 1 (orange: The Complete Collection #1),https://books.toscrape.com/catalogue/orange-the-complete-collection-1-orange-the-complete-collection-1_914/index.html,48.41,GBP,1.0,,books
+Online Marketing for Busy Authors: A Step-By-Step Guide,https://books.toscrape.com/catalogue/online-marketing-for-busy-authors-a-step-by-step-guide_913/index.html,46.35,GBP,1.0,,books
+On a Midnight Clear,https://books.toscrape.com/catalogue/on-a-midnight-clear_912/index.html,14.07,GBP,3.0,,books
+Obsidian (Lux #1),https://books.toscrape.com/catalogue/obsidian-lux-1_911/index.html,14.86,GBP,2.0,,books
+My Paris Kitchen: Recipes and Stories,https://books.toscrape.com/catalogue/my-paris-kitchen-recipes-and-stories_910/index.html,33.37,GBP,2.0,,books
+Masks and Shadows,https://books.toscrape.com/catalogue/masks-and-shadows_909/index.html,56.4,GBP,2.0,,books
+"Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed",https://books.toscrape.com/catalogue/mama-tried-traditional-italian-cooking-for-the-screwed-crude-vegan-and-tattooed_908/index.html,14.02,GBP,4.0,,books
+"Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)",https://books.toscrape.com/catalogue/lumberjanes-vol-2-friendship-to-the-max-lumberjanes-5-8_907/index.html,46.91,GBP,2.0,,books
+"Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)",https://books.toscrape.com/catalogue/lumberjanes-vol-1-beware-the-kitten-holy-lumberjanes-1-4_906/index.html,45.61,GBP,3.0,,books
+Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12),https://books.toscrape.com/catalogue/lumberjanes-vol-3-a-terrible-plan-lumberjanes-9-12_905/index.html,19.92,GBP,2.0,,books
+"Layered: Baking, Building, and Styling Spectacular Cakes",https://books.toscrape.com/catalogue/layered-baking-building-and-styling-spectacular-cakes_904/index.html,40.11,GBP,1.0,,books
+Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners),https://books.toscrape.com/catalogue/judo-seven-steps-to-black-belt-an-introductory-guide-for-beginners_903/index.html,53.9,GBP,2.0,,books
+Join,https://books.toscrape.com/catalogue/join_902/index.html,35.67,GBP,5.0,,books
+In the Country We Love: My Family Divided,https://books.toscrape.com/catalogue/in-the-country-we-love-my-family-divided_901/index.html,22.0,GBP,4.0,,books
+Immunity: How Elie Metchnikoff Changed the Course of Modern Medicine,https://books.toscrape.com/catalogue/immunity-how-elie-metchnikoff-changed-the-course-of-modern-medicine_900/index.html,57.36,GBP,5.0,,books
+"I Hate Fairyland, Vol. 1: Madly Ever After (I Hate Fairyland (Compilations) #1-5)",https://books.toscrape.com/catalogue/i-hate-fairyland-vol-1-madly-ever-after-i-hate-fairyland-compilations-1-5_899/index.html,29.17,GBP,2.0,,books
+I am a Hero Omnibus Volume 1,https://books.toscrape.com/catalogue/i-am-a-hero-omnibus-volume-1_898/index.html,54.63,GBP,3.0,,books
+How to Be Miserable: 40 Strategies You Already Use,https://books.toscrape.com/catalogue/how-to-be-miserable-40-strategies-you-already-use_897/index.html,46.03,GBP,1.0,,books
+Her Backup Boyfriend (The Sorensen Family #1),https://books.toscrape.com/catalogue/her-backup-boyfriend-the-sorensen-family-1_896/index.html,33.97,GBP,1.0,,books
+"Giant Days, Vol. 2 (Giant Days #5-8)",https://books.toscrape.com/catalogue/giant-days-vol-2-giant-days-5-8_895/index.html,22.11,GBP,2.0,,books
+Forever and Forever: The Courtship of Henry Longfellow and Fanny Appleton,https://books.toscrape.com/catalogue/forever-and-forever-the-courtship-of-henry-longfellow-and-fanny-appleton_894/index.html,29.69,GBP,3.0,,books
+First and First (Five Boroughs #3),https://books.toscrape.com/catalogue/first-and-first-five-boroughs-3_893/index.html,15.97,GBP,4.0,,books
+Fifty Shades Darker (Fifty Shades #2),https://books.toscrape.com/catalogue/fifty-shades-darker-fifty-shades-2_892/index.html,21.96,GBP,1.0,,books
+Everydata: The Misinformation Hidden in the Little Data You Consume Every Day,https://books.toscrape.com/catalogue/everydata-the-misinformation-hidden-in-the-little-data-you-consume-every-day_891/index.html,54.35,GBP,2.0,,books
+"Don't Be a Jerk: And Other Practical Advice from Dogen, Japan's Greatest Zen Master",https://books.toscrape.com/catalogue/dont-be-a-jerk-and-other-practical-advice-from-dogen-japans-greatest-zen-master_890/index.html,37.97,GBP,2.0,,books
+Danganronpa Volume 1,https://books.toscrape.com/catalogue/danganronpa-volume-1_889/index.html,51.99,GBP,4.0,,books
+Crown of Midnight (Throne of Glass #2),https://books.toscrape.com/catalogue/crown-of-midnight-throne-of-glass-2_888/index.html,43.29,GBP,3.0,,books
+"Codename Baboushka, Volume 1: The Conclave of Death",https://books.toscrape.com/catalogue/codename-baboushka-volume-1-the-conclave-of-death_887/index.html,36.72,GBP,4.0,,books
+Camp Midnight,https://books.toscrape.com/catalogue/camp-midnight_886/index.html,17.08,GBP,4.0,,books
+Call the Nurse: True Stories of a Country Nurse on a Scottish Isle,https://books.toscrape.com/catalogue/call-the-nurse-true-stories-of-a-country-nurse-on-a-scottish-isle_885/index.html,29.14,GBP,5.0,,books
+Burning,https://books.toscrape.com/catalogue/burning_884/index.html,28.81,GBP,3.0,,books
+Bossypants,https://books.toscrape.com/catalogue/bossypants_883/index.html,49.46,GBP,2.0,,books
+"Bitch Planet, Vol. 1: Extraordinary Machine (Bitch Planet (Collected Editions))",https://books.toscrape.com/catalogue/bitch-planet-vol-1-extraordinary-machine-bitch-planet-collected-editions_882/index.html,37.92,GBP,2.0,,books
+"Avatar: The Last Airbender: Smoke and Shadow, Part 3 (Smoke and Shadow #3)",https://books.toscrape.com/catalogue/avatar-the-last-airbender-smoke-and-shadow-part-3-smoke-and-shadow-3_881/index.html,28.09,GBP,2.0,,books

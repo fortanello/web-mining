@@ -1,14 +1,19 @@
+from urllib.parse import urlsplit
+
 import pytest
 from scrapy.exceptions import DropItem
 from scrapy import Request, signals
 from scrapy.crawler import CrawlerProcess
+from scrapy.exceptions import DontCloseSpider
 from scrapy.http import HtmlResponse
 
 import run_spider
 from webmining.items import NewsItem, ProductItem
 from webmining.sites import NEWS_SITES, SHOP_SITES
 from webmining.pipelines import CleaningPipeline, DuplicationPipeline, ValidationPipeline
-from webmining.spiders.ecommerce import EcommerceSpider, parse_number, parse_price
+from webmining.spiders.ecommerce import (EcommerceSpider, parse_number, parse_price,
+                                         parse_rating)
+from webmining.spiders import news as news_module
 from webmining.spiders.news import NewsSpider
 
 NEWS_HTML = """
@@ -26,6 +31,22 @@ NEWS_HTML = """
 </body></html>
 """
 
+BOOKS_HTML = """
+<html><body>
+  <article class="product_pod">
+    <div class="image_container">
+      <a href="in-her-wake_980/index.html"><img src="thumb.jpg" class="thumbnail"></a>
+    </div>
+    <p class="star-rating One"><i class="icon-star"></i></p>
+    <h3><a href="in-her-wake_980/index.html" title="In Her Wake">In Her Wake</a></h3>
+    <div class="product_price">
+      <p class="price_color">\u00a312.84</p>
+      <p class="instock availability">In stock</p>
+    </div>
+  </article>
+</body></html>
+"""
+
 SHOP_HTML = """
 <html><body>
   <div class="thumbnail">
@@ -39,15 +60,30 @@ SHOP_HTML = """
 </body></html>
 """
 
-def response_for(html, url):
-    return HtmlResponse(url=url, body=html, encoding="utf-8")
+# Scrapy отдаёт отклик, привязанный к запросу; магазин достаёт из meta свой профиль
+def response_for(html, url, **meta):
+    request = Request(url, meta=meta) if meta else None
+    return HtmlResponse(url=url, body=html, encoding="utf-8", request=request)
 
-# парсер новостей отдаёт и записи, и запрос следующей страницы — в тестах их разделяем
-def items_only(results):
-    return [result for result in results if not isinstance(result, Request)]
+def shop_response(html, url, site="testshop"):
+    return response_for(html, url, site=site, profile=SHOP_SITES[site])
 
-def requests_only(results):
-    return [result for result in results if isinstance(result, Request)]
+class FakeEngine:
+    def __init__(self):
+        self.requests = []
+
+    def crawl(self, request):
+        self.requests.append(request)
+
+class FakeCrawler:
+    def __init__(self):
+        self.engine = FakeEngine()
+
+# KeepCollecting подключается к сигналам, поэтому пауку нужен настоящий crawler
+def spider_with_crawler(spider_class, **kwargs):
+    crawler = CrawlerProcess(settings={}).create_crawler(spider_class)
+    spider = spider_class.from_crawler(crawler, **kwargs)
+    return spider, crawler
 
 # ---- CleaningPipeline ----
 
@@ -148,7 +184,7 @@ def test_parse_number(text, expected):
 
 def test_news_spider_extracts_fields_and_absolute_url():
     spider = NewsSpider()
-    items = items_only(spider.parse(response_for(NEWS_HTML, "https://habr.com/ru/articles/page1/")))
+    items = list(spider.parse(response_for(NEWS_HTML, "https://habr.com/ru/articles/page1/")))
 
     assert len(items) == 2
     assert "Нейросети" in items[0]["title"]
@@ -169,7 +205,7 @@ def test_spider_and_pipelines_together_give_clean_record():
 
 def test_news_spider_keeps_only_matching_keywords():
     spider = NewsSpider(keywords="нейросети,ии")
-    items = items_only(spider.parse(response_for(NEWS_HTML, "https://habr.com/ru/articles/page1/")))
+    items = list(spider.parse(response_for(NEWS_HTML, "https://habr.com/ru/articles/page1/")))
 
     assert len(items) == 1
     assert "Нейросети" in items[0]["title"]
@@ -181,32 +217,119 @@ def test_news_spider_survives_page_without_cards():
 
     assert items == []
 
-def test_news_spider_asks_for_next_page_while_below_limit():
-    spider = NewsSpider(limit=100)
-    requests = requests_only(
-        spider.parse(response_for(NEWS_HTML, "https://habr.com/ru/articles/page1/")))
+def test_news_spider_walks_pages_one_by_one():
+    spider, _ = spider_with_crawler(NewsSpider)
 
-    assert len(requests) == 1
-    assert "page2" in requests[0].url
-    assert spider.page == 2
+    assert "page1" in spider.next_request().url
+    assert "page2" in spider.next_request().url
 
-def test_news_spider_stops_paging_when_limit_reached():
-    spider = NewsSpider(limit=2)
-    spider.collected = 2
-    requests = requests_only(
-        spider.parse(response_for(NEWS_HTML, "https://habr.com/ru/articles/page1/")))
+def test_news_spider_gives_up_after_max_pages():
+    spider, _ = spider_with_crawler(NewsSpider)
+    spider.page = news_module.MAX_PAGES
 
-    assert requests == []
-    assert spider.page == 1
+    assert spider.next_request() is None
 
-def test_news_spider_counts_only_records_that_passed_pipelines():
-    crawler = CrawlerProcess(settings={}).create_crawler(NewsSpider)
-    spider = NewsSpider.from_crawler(crawler)
+def test_spider_asks_for_more_until_limit_reached():
+    spider, _ = spider_with_crawler(NewsSpider, limit=100)
+    spider.crawler = FakeCrawler()
+
+    # DontCloseSpider — сигнал Scrapy «не закрывайся, есть ещё работа»
+    with pytest.raises(DontCloseSpider):
+        spider.ask_for_more()
+
+    assert len(spider.crawler.engine.requests) == 1
+
+def test_spider_keeps_going_past_the_minimum_to_leave_a_margin():
+    spider, _ = spider_with_crawler(NewsSpider, limit=100)
+    spider.crawler = FakeCrawler()
+    spider.collected = 100
+
+    # 100 — это минимум, а не цель: остановка ровно на границе оставляет ноль запаса
+    with pytest.raises(DontCloseSpider):
+        spider.ask_for_more()
+
+    assert spider.target > spider.limit
+    assert spider.enough
+
+def test_spider_lets_itself_close_once_margin_collected():
+    spider, _ = spider_with_crawler(NewsSpider, limit=100)
+    spider.crawler = FakeCrawler()
+    spider.collected = spider.target
+
+    spider.ask_for_more()
+
+    assert spider.crawler.engine.requests == []
+
+def test_spider_lets_itself_close_when_sources_run_out():
+    spider, _ = spider_with_crawler(EcommerceSpider, limit=100)
+    spider.crawler = FakeCrawler()
+    spider.queue = []
+
+    spider.ask_for_more()
+
+    assert spider.crawler.engine.requests == []
+
+def test_running_out_of_sources_above_the_minimum_is_not_a_failure():
+    spider, _ = spider_with_crawler(EcommerceSpider, limit=100)
+    spider.crawler = FakeCrawler()
+    spider.queue = []
+    spider.collected = 105
+
+    spider.ask_for_more()
+
+    # запас набрать не вышло, но требование «не менее 100» выполнено
+    assert spider.enough
+
+def test_collected_counts_only_records_that_passed_pipelines():
+    spider, crawler = spider_with_crawler(NewsSpider)
 
     crawler.signals.send_catch_log(signals.item_scraped, item={}, response=None, spider=spider)
 
     # send_catch_log глотает ошибки: ноль означал бы, что подпись обработчика не совпала
     assert spider.collected == 1
+
+def test_ecommerce_spider_takes_asked_category_first():
+    spider, _ = spider_with_crawler(EcommerceSpider, category="computers/tablets")
+
+    assert spider.next_request().url.endswith("computers/tablets")
+
+def test_ecommerce_spider_falls_back_to_other_shops():
+    spider, _ = spider_with_crawler(EcommerceSpider)
+    hosts = []
+    while True:
+        request = spider.next_request()
+        if request is None:
+            break
+        hosts.append(urlsplit(request.url).netloc)
+
+    assert len(hosts) > 10                       # одной категории на 100 товаров не хватит
+    assert len(set(hosts)) > 1                   # запас лежит и на других сайтах
+    assert "www.wildberries.ru" not in hosts     # антиботовый магазин в запас не берём
+
+def test_ecommerce_spider_carries_profile_with_each_request():
+    spider, _ = spider_with_crawler(EcommerceSpider)
+    request = spider.next_request()
+
+    # селекторы у магазинов разные, поэтому профиль едет вместе с запросом
+    assert request.meta["site"] == "testshop"
+    assert request.meta["profile"] is SHOP_SITES["testshop"]
+
+def test_ecommerce_spider_scrolls_until_cards_stop_appearing():
+    spider, _ = spider_with_crawler(EcommerceSpider)
+    methods = spider.next_request().meta["playwright_page_methods"]
+
+    assert [method.method for method in methods] == ["wait_for_selector", "evaluate"]
+    assert "querySelectorAll" in methods[1].args[0]
+    assert methods[1].args[1] == SHOP_SITES["testshop"]["card"]
+
+@pytest.mark.parametrize("stars, expected", [
+    ("star-rating Three", 3.0), ("star-rating One", 1.0), ("star-rating Five", 5.0),
+])
+def test_rating_written_as_a_word_becomes_a_number(stars, expected):
+    assert parse_rating(stars, SHOP_SITES["books"]) == expected
+
+def test_rating_written_as_a_number_stays_a_number():
+    assert parse_rating("4", SHOP_SITES["testshop"]) == 4.0
 
 def test_unknown_site_is_rejected():
     with pytest.raises(ValueError):
@@ -215,7 +338,7 @@ def test_unknown_site_is_rejected():
 def test_ecommerce_spider_parses_card():
     spider = EcommerceSpider()
     url = "https://webscraper.io/test-sites/e-commerce/scroll/computers/laptops"
-    items = list(spider.parse(response_for(SHOP_HTML, url)))
+    items = list(spider.parse(shop_response(SHOP_HTML, url)))
 
     assert len(items) == 1
     product = items[0]
@@ -225,6 +348,21 @@ def test_ecommerce_spider_parses_card():
     assert product["reviews"] == 14.0
     assert product["currency"] == "USD"
     assert product["url"] == "https://webscraper.io/test-sites/e-commerce/product/545"
+
+def test_books_shop_card_is_parsed_with_its_own_selectors():
+    spider = EcommerceSpider()
+    url = "https://books.toscrape.com/catalogue/page-1.html"
+    items = list(spider.parse(shop_response(BOOKS_HTML, url, site="books")))
+
+    assert len(items) == 1
+    book = items[0]
+    assert book["title"] == "In Her Wake"
+    assert book["price"] == 12.84              # цена с \u00a3, а не с $
+    assert book["rating"] == 1.0               # рейтинг словом в классе
+    assert book["currency"] == "GBP"
+    assert book["source"] == "books"
+    assert book["url"] == "https://books.toscrape.com/catalogue/in-her-wake_980/index.html"
+    assert "reviews" not in book               # в этом магазине отзывов нет
 
 # ---- CLI ----
 

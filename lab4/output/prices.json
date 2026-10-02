@@ -1,275 +1,1088 @@
 [
 {
   "title": "Asus VivoBook X441NA-GA190",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/60",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/60",
   "price": 295.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
   "title": "Prestigio SmartBook 133S Dark Grey",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/61",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/61",
   "price": 299.0,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
   "title": "Prestigio SmartBook 133S Gold",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/62",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/62",
   "price": 299.0,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
   "title": "Aspire E1-510",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/32",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/32",
   "price": 306.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
   "title": "Lenovo V110-15IAP",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/63",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/63",
   "price": 321.94,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
   "title": "Lenovo V110-15IAP",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/64",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/64",
   "price": 356.49,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Hewlett Packard 250 G6 Dark Ash Silver",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/65",
-  "price": 364.46,
+  "title": "Lenovo IdeaTab",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/10",
+  "price": 69.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire 3 A315-31 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/66",
-  "price": 372.7,
+  "title": "IdeaTab A3500L",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/15",
+  "price": 88.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire A315-31-C33J",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/67",
-  "price": 379.94,
+  "title": "Acer Iconia",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/11",
+  "price": 96.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire ES1-572 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/68",
-  "price": 379.95,
+  "title": "Galaxy Tab 3",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/18",
+  "price": 97.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire 3 A315-31 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/69",
-  "price": 391.48,
+  "title": "Iconia B1-730HD",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/27",
+  "price": 99.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire 3 A315-21",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/70",
-  "price": 393.88,
+  "title": "Memo Pad HD 7",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/23",
+  "price": 101.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Asus VivoBook Max",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/45",
-  "price": 399.0,
+  "title": "Nokia 123",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/1",
+  "price": 24.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Asus VivoBook E502NA-GO022T Dark Blue",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/71",
-  "price": 399.99,
+  "title": "LG Optimus",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/2",
+  "price": 57.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Lenovo ThinkPad E31-80",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/72",
-  "price": 404.23,
+  "title": "Samsung Galaxy",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/3",
+  "price": 93.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire 3 A315-31 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/73",
-  "price": 408.98,
+  "title": "Nokia X",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/4",
+  "price": 109.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Lenovo V110-15ISK",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/74",
-  "price": 409.63,
+  "title": "Sony Xperia",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/5",
+  "price": 118.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Acer Aspire ES1-732 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/75",
-  "price": 410.46,
+  "title": "Ubuntu Edge",
+  "url": "https://webscraper.io/test-sites/e-commerce/ajax/product/6",
+  "price": 499.99,
   "currency": "USD",
-  "source": "testshop"
+  "source": "testshop-ajax"
 },
 {
-  "title": "Asus VivoBook 15 X540NA-GQ026T",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/76",
-  "price": 410.66,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "A Light in the Attic",
+  "url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
+  "price": 51.77,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
 },
 {
-  "title": "Packard 255 G2",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/31",
-  "price": 416.99,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Tipping the Velvet",
+  "url": "https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html",
+  "price": 53.74,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
 },
 {
-  "title": "Asus EeeBook R416NA-FA014T",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/77",
-  "price": 433.3,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Soumission",
+  "url": "https://books.toscrape.com/catalogue/soumission_998/index.html",
+  "price": 50.1,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire 3 A315-51",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/78",
-  "price": 436.29,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Sharp Objects",
+  "url": "https://books.toscrape.com/catalogue/sharp-objects_997/index.html",
+  "price": 47.82,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire ES1-572 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/79",
-  "price": 436.29,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Sapiens: A Brief History of Humankind",
+  "url": "https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html",
+  "price": 54.23,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
 },
 {
-  "title": "Acer Extensa 15 (2540) Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/80",
-  "price": 439.73,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "The Requiem Red",
+  "url": "https://books.toscrape.com/catalogue/the-requiem-red_995/index.html",
+  "price": 22.65,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire ES1-572 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/81",
-  "price": 454.62,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "The Dirty Little Secrets of Getting Your Dream Job",
+  "url": "https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html",
+  "price": 33.34,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
 },
 {
-  "title": "Lenovo V110-15ISK",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/82",
-  "price": 454.73,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+  "url": "https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html",
+  "price": 17.93,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire A315-51-33TG",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/83",
-  "price": 457.38,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics",
+  "url": "https://books.toscrape.com/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html",
+  "price": 22.6,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
 },
 {
-  "title": "Lenovo V110-15IKB",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/84",
-  "price": 465.95,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "The Black Maria",
+  "url": "https://books.toscrape.com/catalogue/the-black-maria_991/index.html",
+  "price": 52.15,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
 },
 {
-  "title": "Asus VivoBook 15 X540UA-DM260 Chocolate Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/85",
-  "price": 468.56,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Starving Hearts (Triangular Trade Trilogy, #1)",
+  "url": "https://books.toscrape.com/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html",
+  "price": 13.99,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire ES1-572 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/86",
-  "price": 469.1,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Shakespeare's Sonnets",
+  "url": "https://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html",
+  "price": 20.66,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
 },
 {
-  "title": "Lenovo V510 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/87",
-  "price": 484.23,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Set Me Free",
+  "url": "https://books.toscrape.com/catalogue/set-me-free_988/index.html",
+  "price": 17.46,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire ES1-572 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/88",
-  "price": 485.9,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)",
+  "url": "https://books.toscrape.com/catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html",
+  "price": 52.29,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
 },
 {
-  "title": "Lenovo V510 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/89",
-  "price": 487.8,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Rip it Up and Start Again",
+  "url": "https://books.toscrape.com/catalogue/rip-it-up-and-start-again_986/index.html",
+  "price": 35.02,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
 },
 {
-  "title": "Acer Swift 1 SF113-31 Silver",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/90",
-  "price": 488.64,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",
+  "url": "https://books.toscrape.com/catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html",
+  "price": 57.25,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
 },
 {
-  "title": "Dell Vostro 15",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/46",
-  "price": 488.78,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Olio",
+  "url": "https://books.toscrape.com/catalogue/olio_984/index.html",
+  "price": 23.88,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
 },
 {
-  "title": "Acer Aspire 3 A315-51 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/91",
-  "price": 494.71,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Mesaerion: The Best Science Fiction Stories 1800-1849",
+  "url": "https://books.toscrape.com/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html",
+  "price": 37.59,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
 },
 {
-  "title": "Dell Vostro 15 (3568) Red",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/92",
-  "price": 497.17,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "Libertarianism for Beginners",
+  "url": "https://books.toscrape.com/catalogue/libertarianism-for-beginners_982/index.html",
+  "price": 51.33,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
 },
 {
-  "title": "Lenovo V510 Black",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/93",
-  "price": 498.23,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "It's Only the Himalayas",
+  "url": "https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html",
+  "price": 45.17,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
 },
 {
-  "title": "HP 250 G3",
-  "url": "https://webscraper.io/test-sites/e-commerce/scroll/product/42",
-  "price": 520.99,
-  "currency": "USD",
-  "source": "testshop"
+  "title": "In Her Wake",
+  "url": "https://books.toscrape.com/catalogue/in-her-wake_980/index.html",
+  "price": 12.84,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "How Music Works",
+  "url": "https://books.toscrape.com/catalogue/how-music-works_979/index.html",
+  "price": 37.32,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Foolproof Preserving: A Guide to Small Batch Jams, Jellies, Pickles, Condiments, and More: A Foolproof Guide to Making Small Batch Jams, Jellies, Pickles, Condiments, and More",
+  "url": "https://books.toscrape.com/catalogue/foolproof-preserving-a-guide-to-small-batch-jams-jellies-pickles-condiments-and-more-a-foolproof-guide-to-making-small-batch-jams-jellies-pickles-condiments-and-more_978/index.html",
+  "price": 30.52,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Chase Me (Paris Nights #2)",
+  "url": "https://books.toscrape.com/catalogue/chase-me-paris-nights-2_977/index.html",
+  "price": 25.27,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Black Dust",
+  "url": "https://books.toscrape.com/catalogue/black-dust_976/index.html",
+  "price": 34.53,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Birdsong: A Story in Pictures",
+  "url": "https://books.toscrape.com/catalogue/birdsong-a-story-in-pictures_975/index.html",
+  "price": 54.64,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana",
+  "url": "https://books.toscrape.com/catalogue/americas-cradle-of-quarterbacks-western-pennsylvanias-football-factory-from-johnny-unitas-to-joe-montana_974/index.html",
+  "price": 22.5,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Aladdin and His Wonderful Lamp",
+  "url": "https://books.toscrape.com/catalogue/aladdin-and-his-wonderful-lamp_973/index.html",
+  "price": 53.13,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Worlds Elsewhere: Journeys Around Shakespeare's Globe",
+  "url": "https://books.toscrape.com/catalogue/worlds-elsewhere-journeys-around-shakespeares-globe_972/index.html",
+  "price": 40.3,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Wall and Piece",
+  "url": "https://books.toscrape.com/catalogue/wall-and-piece_971/index.html",
+  "price": 44.18,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "The Four Agreements: A Practical Guide to Personal Freedom",
+  "url": "https://books.toscrape.com/catalogue/the-four-agreements-a-practical-guide-to-personal-freedom_970/index.html",
+  "price": 17.66,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "The Five Love Languages: How to Express Heartfelt Commitment to Your Mate",
+  "url": "https://books.toscrape.com/catalogue/the-five-love-languages-how-to-express-heartfelt-commitment-to-your-mate_969/index.html",
+  "price": 31.05,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "The Elephant Tree",
+  "url": "https://books.toscrape.com/catalogue/the-elephant-tree_968/index.html",
+  "price": 23.82,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "The Bear and the Piano",
+  "url": "https://books.toscrape.com/catalogue/the-bear-and-the-piano_967/index.html",
+  "price": 36.89,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Sophie's World",
+  "url": "https://books.toscrape.com/catalogue/sophies-world_966/index.html",
+  "price": 15.94,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Penny Maybe",
+  "url": "https://books.toscrape.com/catalogue/penny-maybe_965/index.html",
+  "price": 33.29,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Maude (1883-1993):She Grew Up with the country",
+  "url": "https://books.toscrape.com/catalogue/maude-1883-1993she-grew-up-with-the-country_964/index.html",
+  "price": 18.02,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "In a Dark, Dark Wood",
+  "url": "https://books.toscrape.com/catalogue/in-a-dark-dark-wood_963/index.html",
+  "price": 19.63,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Behind Closed Doors",
+  "url": "https://books.toscrape.com/catalogue/behind-closed-doors_962/index.html",
+  "price": 52.22,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "You can't bury them all: Poems",
+  "url": "https://books.toscrape.com/catalogue/you-cant-bury-them-all-poems_961/index.html",
+  "price": 33.63,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Slow States of Collapse: Poems",
+  "url": "https://books.toscrape.com/catalogue/slow-states-of-collapse-poems_960/index.html",
+  "price": 57.31,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Reasons to Stay Alive",
+  "url": "https://books.toscrape.com/catalogue/reasons-to-stay-alive_959/index.html",
+  "price": 26.41,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Private Paris (Private #10)",
+  "url": "https://books.toscrape.com/catalogue/private-paris-private-10_958/index.html",
+  "price": 47.61,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.",
+  "url": "https://books.toscrape.com/catalogue/higherselfie-wake-up-your-life-free-your-soul-find-your-tribe_957/index.html",
+  "price": 23.11,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Without Borders (Wanderlove #1)",
+  "url": "https://books.toscrape.com/catalogue/without-borders-wanderlove-1_956/index.html",
+  "price": 45.07,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "When We Collided",
+  "url": "https://books.toscrape.com/catalogue/when-we-collided_955/index.html",
+  "price": 31.77,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "We Love You, Charlie Freeman",
+  "url": "https://books.toscrape.com/catalogue/we-love-you-charlie-freeman_954/index.html",
+  "price": 50.27,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Untitled Collection: Sabbath Poems 2014",
+  "url": "https://books.toscrape.com/catalogue/untitled-collection-sabbath-poems-2014_953/index.html",
+  "price": 14.27,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails & Other Wonders of the Urban Wilderness",
+  "url": "https://books.toscrape.com/catalogue/unseen-city-the-majesty-of-pigeons-the-discreet-charm-of-snails-other-wonders-of-the-urban-wilderness_952/index.html",
+  "price": 44.18,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Unicorn Tracks",
+  "url": "https://books.toscrape.com/catalogue/unicorn-tracks_951/index.html",
+  "price": 18.78,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink",
+  "url": "https://books.toscrape.com/catalogue/unbound-how-eight-technologies-made-us-human-transformed-society-and-brought-our-world-to-the-brink_950/index.html",
+  "price": 25.52,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)",
+  "url": "https://books.toscrape.com/catalogue/tsubasa-world-chronicle-2-tsubasa-world-chronicle-2_949/index.html",
+  "price": 16.28,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Throwing Rocks at the Google Bus: How Growth Became the Enemy of Prosperity",
+  "url": "https://books.toscrape.com/catalogue/throwing-rocks-at-the-google-bus-how-growth-became-the-enemy-of-prosperity_948/index.html",
+  "price": 31.12,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "This One Summer",
+  "url": "https://books.toscrape.com/catalogue/this-one-summer_947/index.html",
+  "price": 19.49,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Thirst",
+  "url": "https://books.toscrape.com/catalogue/thirst_946/index.html",
+  "price": 17.27,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "The Torch Is Passed: A Harding Family Story",
+  "url": "https://books.toscrape.com/catalogue/the-torch-is-passed-a-harding-family-story_945/index.html",
+  "price": 19.09,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "The Secret of Dreadwillow Carse",
+  "url": "https://books.toscrape.com/catalogue/the-secret-of-dreadwillow-carse_944/index.html",
+  "price": 56.13,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!",
+  "url": "https://books.toscrape.com/catalogue/the-pioneer-woman-cooks-dinnertime-comfort-classics-freezer-food-16-minute-meals-and-other-delicious-ways-to-solve-supper_943/index.html",
+  "price": 56.41,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "The Past Never Ends",
+  "url": "https://books.toscrape.com/catalogue/the-past-never-ends_942/index.html",
+  "price": 56.5,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "The Natural History of Us (The Fine Art of Pretending #2)",
+  "url": "https://books.toscrape.com/catalogue/the-natural-history-of-us-the-fine-art-of-pretending-2_941/index.html",
+  "price": 45.22,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "The Nameless City (The Nameless City #1)",
+  "url": "https://books.toscrape.com/catalogue/the-nameless-city-the-nameless-city-1_940/index.html",
+  "price": 38.16,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "The Murder That Never Was (Forensic Instincts #5)",
+  "url": "https://books.toscrape.com/catalogue/the-murder-that-never-was-forensic-instincts-5_939/index.html",
+  "price": 54.11,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "The Most Perfect Thing: Inside (and Outside) a Bird's Egg",
+  "url": "https://books.toscrape.com/catalogue/the-most-perfect-thing-inside-and-outside-a-birds-egg_938/index.html",
+  "price": 42.96,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy",
+  "url": "https://books.toscrape.com/catalogue/the-mindfulness-and-acceptance-workbook-for-anxiety-a-guide-to-breaking-free-from-anxiety-phobias-and-worry-using-acceptance-and-commitment-therapy_937/index.html",
+  "price": 23.89,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing",
+  "url": "https://books.toscrape.com/catalogue/the-life-changing-magic-of-tidying-up-the-japanese-art-of-decluttering-and-organizing_936/index.html",
+  "price": 16.77,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "The Inefficiency Assassin: Time Management Tactics for Working Smarter, Not Longer",
+  "url": "https://books.toscrape.com/catalogue/the-inefficiency-assassin-time-management-tactics-for-working-smarter-not-longer_935/index.html",
+  "price": 20.59,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "The Gutsy Girl: Escapades for Your Life of Epic Adventure",
+  "url": "https://books.toscrape.com/catalogue/the-gutsy-girl-escapades-for-your-life-of-epic-adventure_934/index.html",
+  "price": 37.13,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "The Electric Pencil: Drawings from Inside State Hospital No. 3",
+  "url": "https://books.toscrape.com/catalogue/the-electric-pencil-drawings-from-inside-state-hospital-no-3_933/index.html",
+  "price": 56.06,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "The Death of Humanity: and the Case for Life",
+  "url": "https://books.toscrape.com/catalogue/the-death-of-humanity-and-the-case-for-life_932/index.html",
+  "price": 58.11,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "The Bulletproof Diet: Lose up to a Pound a Day, Reclaim Energy and Focus, Upgrade Your Life",
+  "url": "https://books.toscrape.com/catalogue/the-bulletproof-diet-lose-up-to-a-pound-a-day-reclaim-energy-and-focus-upgrade-your-life_931/index.html",
+  "price": 49.05,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "The Art Forger",
+  "url": "https://books.toscrape.com/catalogue/the-art-forger_930/index.html",
+  "price": 40.76,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "The Age of Genius: The Seventeenth Century and the Birth of the Modern Mind",
+  "url": "https://books.toscrape.com/catalogue/the-age-of-genius-the-seventeenth-century-and-the-birth-of-the-modern-mind_929/index.html",
+  "price": 19.73,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "The Activist's Tao Te Ching: Ancient Advice for a Modern Revolution",
+  "url": "https://books.toscrape.com/catalogue/the-activists-tao-te-ching-ancient-advice-for-a-modern-revolution_928/index.html",
+  "price": 32.24,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up",
+  "url": "https://books.toscrape.com/catalogue/spark-joy-an-illustrated-master-class-on-the-art-of-organizing-and-tidying-up_927/index.html",
+  "price": 41.83,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Soul Reader",
+  "url": "https://books.toscrape.com/catalogue/soul-reader_926/index.html",
+  "price": 39.58,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Security",
+  "url": "https://books.toscrape.com/catalogue/security_925/index.html",
+  "price": 39.25,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Saga, Volume 6 (Saga (Collected Editions) #6)",
+  "url": "https://books.toscrape.com/catalogue/saga-volume-6-saga-collected-editions-6_924/index.html",
+  "price": 25.02,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Saga, Volume 5 (Saga (Collected Editions) #5)",
+  "url": "https://books.toscrape.com/catalogue/saga-volume-5-saga-collected-editions-5_923/index.html",
+  "price": 51.04,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Reskilling America: Learning to Labor in the Twenty-First Century",
+  "url": "https://books.toscrape.com/catalogue/reskilling-america-learning-to-labor-in-the-twenty-first-century_922/index.html",
+  "price": 19.83,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Rat Queens, Vol. 3: Demons (Rat Queens (Collected Editions) #11-15)",
+  "url": "https://books.toscrape.com/catalogue/rat-queens-vol-3-demons-rat-queens-collected-editions-11-15_921/index.html",
+  "price": 50.4,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",
+  "url": "https://books.toscrape.com/catalogue/princess-jellyfish-2-in-1-omnibus-vol-01-princess-jellyfish-2-in-1-omnibus-1_920/index.html",
+  "price": 13.61,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Princess Between Worlds (Wide-Awake Princess #5)",
+  "url": "https://books.toscrape.com/catalogue/princess-between-worlds-wide-awake-princess-5_919/index.html",
+  "price": 13.34,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Pop Gun War, Volume 1: Gift",
+  "url": "https://books.toscrape.com/catalogue/pop-gun-war-volume-1-gift_918/index.html",
+  "price": 18.97,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Political Suicide: Missteps, Peccadilloes, Bad Calls, Backroom Hijinx, Sordid Pasts, Rotten Breaks, and Just Plain Dumb Mistakes in the Annals of American Politics",
+  "url": "https://books.toscrape.com/catalogue/political-suicide-missteps-peccadilloes-bad-calls-backroom-hijinx-sordid-pasts-rotten-breaks-and-just-plain-dumb-mistakes-in-the-annals-of-american-politics_917/index.html",
+  "price": 36.28,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Patience",
+  "url": "https://books.toscrape.com/catalogue/patience_916/index.html",
+  "price": 10.16,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)",
+  "url": "https://books.toscrape.com/catalogue/outcast-vol-1-a-darkness-surrounds-him-outcast-1_915/index.html",
+  "price": 15.44,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "orange: The Complete Collection 1 (orange: The Complete Collection #1)",
+  "url": "https://books.toscrape.com/catalogue/orange-the-complete-collection-1-orange-the-complete-collection-1_914/index.html",
+  "price": 48.41,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Online Marketing for Busy Authors: A Step-By-Step Guide",
+  "url": "https://books.toscrape.com/catalogue/online-marketing-for-busy-authors-a-step-by-step-guide_913/index.html",
+  "price": 46.35,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "On a Midnight Clear",
+  "url": "https://books.toscrape.com/catalogue/on-a-midnight-clear_912/index.html",
+  "price": 14.07,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Obsidian (Lux #1)",
+  "url": "https://books.toscrape.com/catalogue/obsidian-lux-1_911/index.html",
+  "price": 14.86,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "My Paris Kitchen: Recipes and Stories",
+  "url": "https://books.toscrape.com/catalogue/my-paris-kitchen-recipes-and-stories_910/index.html",
+  "price": 33.37,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Masks and Shadows",
+  "url": "https://books.toscrape.com/catalogue/masks-and-shadows_909/index.html",
+  "price": 56.4,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed",
+  "url": "https://books.toscrape.com/catalogue/mama-tried-traditional-italian-cooking-for-the-screwed-crude-vegan-and-tattooed_908/index.html",
+  "price": 14.02,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)",
+  "url": "https://books.toscrape.com/catalogue/lumberjanes-vol-2-friendship-to-the-max-lumberjanes-5-8_907/index.html",
+  "price": 46.91,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)",
+  "url": "https://books.toscrape.com/catalogue/lumberjanes-vol-1-beware-the-kitten-holy-lumberjanes-1-4_906/index.html",
+  "price": 45.61,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)",
+  "url": "https://books.toscrape.com/catalogue/lumberjanes-vol-3-a-terrible-plan-lumberjanes-9-12_905/index.html",
+  "price": 19.92,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Layered: Baking, Building, and Styling Spectacular Cakes",
+  "url": "https://books.toscrape.com/catalogue/layered-baking-building-and-styling-spectacular-cakes_904/index.html",
+  "price": 40.11,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)",
+  "url": "https://books.toscrape.com/catalogue/judo-seven-steps-to-black-belt-an-introductory-guide-for-beginners_903/index.html",
+  "price": 53.9,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Join",
+  "url": "https://books.toscrape.com/catalogue/join_902/index.html",
+  "price": 35.67,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "In the Country We Love: My Family Divided",
+  "url": "https://books.toscrape.com/catalogue/in-the-country-we-love-my-family-divided_901/index.html",
+  "price": 22.0,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Immunity: How Elie Metchnikoff Changed the Course of Modern Medicine",
+  "url": "https://books.toscrape.com/catalogue/immunity-how-elie-metchnikoff-changed-the-course-of-modern-medicine_900/index.html",
+  "price": 57.36,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "I Hate Fairyland, Vol. 1: Madly Ever After (I Hate Fairyland (Compilations) #1-5)",
+  "url": "https://books.toscrape.com/catalogue/i-hate-fairyland-vol-1-madly-ever-after-i-hate-fairyland-compilations-1-5_899/index.html",
+  "price": 29.17,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "I am a Hero Omnibus Volume 1",
+  "url": "https://books.toscrape.com/catalogue/i-am-a-hero-omnibus-volume-1_898/index.html",
+  "price": 54.63,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "How to Be Miserable: 40 Strategies You Already Use",
+  "url": "https://books.toscrape.com/catalogue/how-to-be-miserable-40-strategies-you-already-use_897/index.html",
+  "price": 46.03,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Her Backup Boyfriend (The Sorensen Family #1)",
+  "url": "https://books.toscrape.com/catalogue/her-backup-boyfriend-the-sorensen-family-1_896/index.html",
+  "price": 33.97,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Giant Days, Vol. 2 (Giant Days #5-8)",
+  "url": "https://books.toscrape.com/catalogue/giant-days-vol-2-giant-days-5-8_895/index.html",
+  "price": 22.11,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Forever and Forever: The Courtship of Henry Longfellow and Fanny Appleton",
+  "url": "https://books.toscrape.com/catalogue/forever-and-forever-the-courtship-of-henry-longfellow-and-fanny-appleton_894/index.html",
+  "price": 29.69,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "First and First (Five Boroughs #3)",
+  "url": "https://books.toscrape.com/catalogue/first-and-first-five-boroughs-3_893/index.html",
+  "price": 15.97,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Fifty Shades Darker (Fifty Shades #2)",
+  "url": "https://books.toscrape.com/catalogue/fifty-shades-darker-fifty-shades-2_892/index.html",
+  "price": 21.96,
+  "currency": "GBP",
+  "rating": 1.0,
+  "source": "books"
+},
+{
+  "title": "Everydata: The Misinformation Hidden in the Little Data You Consume Every Day",
+  "url": "https://books.toscrape.com/catalogue/everydata-the-misinformation-hidden-in-the-little-data-you-consume-every-day_891/index.html",
+  "price": 54.35,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Don't Be a Jerk: And Other Practical Advice from Dogen, Japan's Greatest Zen Master",
+  "url": "https://books.toscrape.com/catalogue/dont-be-a-jerk-and-other-practical-advice-from-dogen-japans-greatest-zen-master_890/index.html",
+  "price": 37.97,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Danganronpa Volume 1",
+  "url": "https://books.toscrape.com/catalogue/danganronpa-volume-1_889/index.html",
+  "price": 51.99,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Crown of Midnight (Throne of Glass #2)",
+  "url": "https://books.toscrape.com/catalogue/crown-of-midnight-throne-of-glass-2_888/index.html",
+  "price": 43.29,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Codename Baboushka, Volume 1: The Conclave of Death",
+  "url": "https://books.toscrape.com/catalogue/codename-baboushka-volume-1-the-conclave-of-death_887/index.html",
+  "price": 36.72,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Camp Midnight",
+  "url": "https://books.toscrape.com/catalogue/camp-midnight_886/index.html",
+  "price": 17.08,
+  "currency": "GBP",
+  "rating": 4.0,
+  "source": "books"
+},
+{
+  "title": "Call the Nurse: True Stories of a Country Nurse on a Scottish Isle",
+  "url": "https://books.toscrape.com/catalogue/call-the-nurse-true-stories-of-a-country-nurse-on-a-scottish-isle_885/index.html",
+  "price": 29.14,
+  "currency": "GBP",
+  "rating": 5.0,
+  "source": "books"
+},
+{
+  "title": "Burning",
+  "url": "https://books.toscrape.com/catalogue/burning_884/index.html",
+  "price": 28.81,
+  "currency": "GBP",
+  "rating": 3.0,
+  "source": "books"
+},
+{
+  "title": "Bossypants",
+  "url": "https://books.toscrape.com/catalogue/bossypants_883/index.html",
+  "price": 49.46,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Bitch Planet, Vol. 1: Extraordinary Machine (Bitch Planet (Collected Editions))",
+  "url": "https://books.toscrape.com/catalogue/bitch-planet-vol-1-extraordinary-machine-bitch-planet-collected-editions_882/index.html",
+  "price": 37.92,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
+},
+{
+  "title": "Avatar: The Last Airbender: Smoke and Shadow, Part 3 (Smoke and Shadow #3)",
+  "url": "https://books.toscrape.com/catalogue/avatar-the-last-airbender-smoke-and-shadow-part-3-smoke-and-shadow-3_881/index.html",
+  "price": 28.09,
+  "currency": "GBP",
+  "rating": 2.0,
+  "source": "books"
 }
 ]

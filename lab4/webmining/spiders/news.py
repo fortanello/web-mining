@@ -1,8 +1,8 @@
 import scrapy
 from itemloaders.processors import Join, MapCompose, TakeFirst
-from scrapy import signals
 from scrapy.loader import ItemLoader
 
+from webmining.collect import KeepCollecting
 from webmining.items import NewsItem
 from webmining.sites import NEWS_SITES
 
@@ -14,7 +14,7 @@ class NewsLoader(ItemLoader):
     default_output_processor = TakeFirst()
     summary_out = Join(" ")
 
-class NewsSpider(scrapy.Spider):
+class NewsSpider(KeepCollecting, scrapy.Spider):
     name = "news"
 
     def __init__(self, site="habr", keywords="", limit=100, *args, **kwargs):
@@ -28,31 +28,29 @@ class NewsSpider(scrapy.Spider):
         self.limit = int(limit)
         self.skipped = 0
         self.collected = 0
-        self.page = 1
-
-    # item_scraped срабатывает только на записях, прошедших все pipelines,
-    # поэтому отброшенные дубликаты не считаются собранными
-    @classmethod
-    def from_crawler(cls, crawler, *args, **kwargs):
-        spider = super().from_crawler(crawler, *args, **kwargs)
-        crawler.signals.connect(spider.count_item, signal=signals.item_scraped)
-        return spider
-
-    def count_item(self):
-        self.collected += 1
+        self.page = 0
+        self.exhausted = False
 
     # С версии 2.13 Scrapy вызывает async start(), а не start_requests()
     async def start(self):
-        yield self.page_request(self.page)
+        yield self.next_request()
 
-    def page_request(self, page):
-        return scrapy.Request(self.profile["page_url"].format(page=page), callback=self.parse)
+    # KeepCollecting спрашивает следующую страницу, пока не наберётся limit записей
+    def next_request(self):
+        if self.exhausted or self.page >= MAX_PAGES:
+            return None
+
+        self.page += 1
+        return scrapy.Request(self.profile["page_url"].format(page=self.page),
+                              callback=self.parse, errback=self.on_error)
 
     def parse(self, response):
         cards = response.css(self.profile["card"])
         if not cards:
+            # страницы кончились или сломался селектор — дальше листать бессмысленно
             self.logger.warning("Ни одной карточки на %s — проверьте селекторы в sites.py",
                                 response.url)
+            self.exhausted = True
             return
 
         for card in cards:
@@ -60,19 +58,6 @@ class NewsSpider(scrapy.Spider):
             if item is None:
                 continue
             yield item
-
-        # сколько страниц нужно, заранее неизвестно: зависит от того, сколько отсеет фильтр.
-        # страницы идут строго по одной, поэтому номер хранится прямо в пауке
-        if self.collected >= self.limit:
-            return
-        if self.page >= MAX_PAGES:
-            self.logger.warning("Остановился на странице %d, собрано %d из %d — "
-                                "ключевые слова слишком узкие",
-                                self.page, self.collected, self.limit)
-            return
-
-        self.page += 1
-        yield self.page_request(self.page)
 
     def build_item(self, card, response):
         loader = NewsLoader(selector=card)
@@ -97,7 +82,11 @@ class NewsSpider(scrapy.Spider):
         text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
         return any(word in text for word in self.keywords)
 
+    def on_error(self, failure):
+        self.logger.error("Страница %d не открылась: %s", self.page, failure.value)
+        self.exhausted = True
+
     def closed(self, reason):
         if self.keywords:
             self.logger.info("Не подошло по ключевым словам — %d записей", self.skipped)
-        self.logger.info("Собрано записей: %d (нужно %d)", self.collected, self.limit)
+        super().closed(reason)
