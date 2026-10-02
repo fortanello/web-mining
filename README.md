@@ -7,6 +7,7 @@
 | [`lab1`](lab1/README.md) | Поиск по архиву Common Crawl | Консольное приложение: поиск по CDX-индексу, чтение страниц из WARC через Range-запросы, подсчёт упоминаний |
 | [`lab2`](lab2/README.md) | Библиотеки сбора веб-данных | Паук на Scrapy и граф информационных ресурсов по металлургии на языке DOT |
 | [`lab3`](lab3/README.md) | Wikimedia API | Сборщик данных о предметной области через API Википедии, Викиданных, Викисловаря и Commons |
+| [`lab4`](lab4/README.md) | Scrapy + Playwright | Два паука: новости со статического сайта и товары с динамического, с конвейером очистки и экспортом в JSON и CSV |
 
 ## Структура
 
@@ -20,11 +21,16 @@ web-mining/
 │   ├── task1/              паук на Scrapy
 │   ├── task2/              граф ресурсов по металлургии
 │   └── practice2.ipynb
-└── lab3/
-    ├── main.py             сборщик
-    ├── wikimedia.py        обращения к API
-    ├── test_main.py        юнит-тесты
-    └── practice3.ipynb
+├── lab3/
+│   ├── main.py             сборщик
+│   ├── wikimedia.py        обращения к API
+│   ├── test_main.py        юнит-тесты
+│   └── practice3.ipynb
+└── lab4/
+    ├── run_spider.py       CLI запуска пауков
+    ├── webmining/          Scrapy-проект: пауки, pipelines, настройки
+    ├── test_webmining.py   юнит-тесты
+    └── practice4.ipynb
 ```
 
 ## Запуск
@@ -33,13 +39,14 @@ web-mining/
 своя инструкция в `README.md` внутри папки. Общий порядок одинаковый:
 
 ```powershell
-cd lab3                      # или lab1, lab2
+cd lab4                      # или lab1, lab2, lab3
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-Нужен Python 3.9+, для `lab3` — 3.11+. Отдельно стоит поставить системный Graphviz
+Нужен Python 3.9+, для `lab3` и `lab4` — 3.11+. В `lab4` после установки зависимостей
+нужен ещё браузер: `playwright install chromium`. Отдельно стоит поставить системный Graphviz
 (`winget install graphviz`): пакет `graphviz` из pip только вызывает программу `dot`,
 без неё граф сохранится в `.dot`, но не отрисуется в картинку.
 
@@ -54,5 +61,6 @@ pip install -r requirements.txt
 * **Кэш и повторные запуски.** Скачанное сохраняется на диск (`cache.json`, `terms.json`,
   `output/`), поэтому прерванный сбор можно продолжить, а эксперименты с параметрами
   идут без обращений к сети.
-* **Диагностика.** Что не удалось скачать, видно в выводе, а в `lab3` — ещё и в
-  `errors.json`.
+* **Диагностика.** Что не удалось скачать, видно в выводе: в `lab3` — в `errors.json`,
+  в `lab4` — в `logs/` и в отчётах pipelines.
+* **Тесты.** В `lab3` и `lab4` есть юнит-тесты, сеть им не нужна: `python -m pytest -q`.

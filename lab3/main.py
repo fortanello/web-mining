@@ -137,6 +137,11 @@ def save_picture_of_the_day(folder, lang):
     if not saved and picture.get("thumbnail"):
         # оригинал бывает на сотни мегабайт и отдаётся не всегда — берём превью
         saved = wikimedia.download(picture["thumbnail"], image_path, "potd-thumbnail")
+        if saved:
+            # иначе в errors.json 403 выглядит как нерешённая проблема
+            for error in wikimedia.errors:
+                if error["stage"] == "potd-image":
+                    error["resolved"] = "скачано превью вместо оригинала"
     if not saved:
         print("Картинку дня скачать не удалось, подробности в errors.json")
         return {}

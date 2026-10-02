@@ -1,0 +1,328 @@
+2026-10-02 21:39:03 [scrapy.utils.log] INFO: Scrapy 2.19.0 started (bot: webmining)
+2026-10-02 21:39:03 [scrapy.utils.log] INFO: Versions:
+{'lxml': '5.3.0',
+ 'libxml2': '2.11.7',
+ 'cssselect': '1.5.0',
+ 'parsel': '1.11.0',
+ 'w3lib': '2.4.1',
+ 'Twisted': '26.4.0',
+ 'Python': '3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 '
+           '64 bit (AMD64)]',
+ 'pyOpenSSL': '26.4.0 (OpenSSL 4.0.2 25 Aug 2026)',
+ 'cryptography': '50.0.1',
+ 'Platform': 'Windows-11-10.0.26200-SP0'}
+2026-10-02 21:39:03 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-10-02 21:39:03 [scrapy.extensions.telnet] INFO: Telnet Password: 16159292b56a14f6
+2026-10-02 21:39:04 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logcount.LogCount',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.remote_control.RemoteControl']
+2026-10-02 21:39:04 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'webmining',
+ 'CONCURRENT_REQUESTS': 8,
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 2,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 30,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'FEED_EXPORT_INDENT': 2,
+ 'LOG_FILE': 'c:\\projects\\web-mining\\lab4\\logs\\news.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'webmining.spiders',
+ 'RETRY_HTTP_CODES': [429, 500, 502, 503, 504],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['webmining.spiders'],
+ 'USER_AGENT': 'web-mining-lab4/1.0 (educational project; contact: '
+               'student@example.com)'}
+2026-10-02 21:39:04 [scrapy-playwright] INFO: Started loop on separate thread: <ProactorEventLoop running=True closed=False debug=False>
+2026-10-02 21:39:04 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-10-02 21:39:04 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware',
+ 'scrapy.spidermiddlewares.metacopy.MetaCopyDetectionMiddleware']
+2026-10-02 21:39:04 [scrapy.middleware] INFO: Enabled item pipelines:
+['webmining.pipelines.CleaningPipeline',
+ 'webmining.pipelines.DuplicationPipeline',
+ 'webmining.pipelines.ValidationPipeline']
+2026-10-02 21:39:04 [scrapy.core.engine] INFO: Spider opened
+2026-10-02 21:39:05 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-10-02 21:39:05 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-10-02 21:39:05 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 21:39:05 [scrapy.extensions.remote_control] INFO: Remote control HTTP server listening on port 55680 (job 26076-d5737d78b5054b2fb2e46139f25b49ca)
+2026-10-02 21:39:05 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 21:39:22 [scrapy.core.engine] INFO: Closing spider (finished)
+2026-10-02 21:39:22 [webmining.pipelines] INFO: ValidationPipeline: отброшено записей — 0
+2026-10-02 21:39:22 [webmining.pipelines] INFO: DuplicationPipeline: отброшено дубликатов — 0
+2026-10-02 21:39:22 [webmining.pipelines] INFO: CleaningPipeline: поправлено полей — 105
+2026-10-02 21:39:22 [news] INFO: Не подошло по ключевым словам — 49 записей
+2026-10-02 21:39:22 [scrapy.extensions.feedexport] INFO: Stored json feed (91 items) in: c:\projects\web-mining\lab4\output\news.json
+2026-10-02 21:39:22 [scrapy.extensions.feedexport] INFO: Stored csv feed (91 items) in: c:\projects\web-mining\lab4\output\news.csv
+2026-10-02 21:39:22 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 3534,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 352646,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 8,
+ 'elapsed_time_seconds': 17.875,
+ 'feedexport/success_count/FileFeedStorage': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2026, 10, 2, 16, 39, 22, 875290, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 2230099,
+ 'httpcompression/response_count': 8,
+ 'item_scraped_count': 91,
+ 'items_per_minute': 321.1764705882353,
+ 'log_count/INFO': 10,
+ 'response_received_count': 8,
+ 'responses_per_minute': 28.235294117647058,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 7,
+ 'scheduler/dequeued/memory': 7,
+ 'scheduler/enqueued': 7,
+ 'scheduler/enqueued/memory': 7,
+ 'start_time': datetime.datetime(2026, 10, 2, 16, 39, 5, 1795, tzinfo=datetime.timezone.utc)}
+2026-10-02 21:39:22 [scrapy.core.engine] INFO: Spider closed (finished)
+2026-10-02 21:39:22 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 21:39:22 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 21:51:13 [scrapy.utils.log] INFO: Scrapy 2.19.0 started (bot: webmining)
+2026-10-02 21:51:13 [scrapy.utils.log] INFO: Versions:
+{'lxml': '5.3.0',
+ 'libxml2': '2.11.7',
+ 'cssselect': '1.5.0',
+ 'parsel': '1.11.0',
+ 'w3lib': '2.4.1',
+ 'Twisted': '26.4.0',
+ 'Python': '3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 '
+           '64 bit (AMD64)]',
+ 'pyOpenSSL': '26.4.0 (OpenSSL 4.0.2 25 Aug 2026)',
+ 'cryptography': '50.0.1',
+ 'Platform': 'Windows-11-10.0.26200-SP0'}
+2026-10-02 21:51:13 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-10-02 21:51:13 [scrapy.extensions.telnet] INFO: Telnet Password: 89741b06f191b8e8
+2026-10-02 21:51:14 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logcount.LogCount',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.remote_control.RemoteControl']
+2026-10-02 21:51:14 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'webmining',
+ 'CONCURRENT_REQUESTS': 8,
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 2,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 30,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'FEED_EXPORT_INDENT': 2,
+ 'LOG_FILE': 'c:\\projects\\web-mining\\lab4\\logs\\news.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'webmining.spiders',
+ 'RETRY_HTTP_CODES': [429, 500, 502, 503, 504],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['webmining.spiders'],
+ 'USER_AGENT': 'web-mining-lab4/1.0 (educational project; contact: '
+               'student@example.com)'}
+2026-10-02 21:51:14 [scrapy-playwright] INFO: Started loop on separate thread: <ProactorEventLoop running=True closed=False debug=False>
+2026-10-02 21:51:14 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-10-02 21:51:14 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware',
+ 'scrapy.spidermiddlewares.metacopy.MetaCopyDetectionMiddleware']
+2026-10-02 21:51:14 [scrapy.middleware] INFO: Enabled item pipelines:
+['webmining.pipelines.CleaningPipeline',
+ 'webmining.pipelines.DuplicationPipeline',
+ 'webmining.pipelines.ValidationPipeline']
+2026-10-02 21:51:14 [scrapy.core.engine] INFO: Spider opened
+2026-10-02 21:51:14 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-10-02 21:51:14 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-10-02 21:51:14 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 21:51:14 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 21:51:14 [scrapy.extensions.remote_control] INFO: Remote control HTTP server listening on port 55209 (job 32944-a8af5ce5f8244b3f897b88a7f94fb6ba)
+2026-10-02 21:51:37 [scrapy.core.engine] INFO: Closing spider (finished)
+2026-10-02 21:51:37 [webmining.pipelines] INFO: ValidationPipeline: отброшено записей — 0
+2026-10-02 21:51:37 [webmining.pipelines] INFO: DuplicationPipeline: отброшено дубликатов — 0
+2026-10-02 21:51:37 [webmining.pipelines] INFO: CleaningPipeline: поправлено полей — 152
+2026-10-02 21:51:37 [news] INFO: Не подошло по ключевым словам — 60 записей
+2026-10-02 21:51:37 [news] INFO: Собрано записей: 120 (нужно 100)
+2026-10-02 21:51:37 [scrapy.extensions.feedexport] INFO: Stored json feed (120 items) in: c:\projects\web-mining\lab4\output\news.json
+2026-10-02 21:51:37 [scrapy.extensions.feedexport] INFO: Stored csv feed (120 items) in: c:\projects\web-mining\lab4\output\news.csv
+2026-10-02 21:51:37 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 4836,
+ 'downloader/request_count': 10,
+ 'downloader/request_method_count/GET': 10,
+ 'downloader/response_bytes': 449387,
+ 'downloader/response_count': 10,
+ 'downloader/response_status_count/200': 10,
+ 'elapsed_time_seconds': 22.71900000000005,
+ 'feedexport/success_count/FileFeedStorage': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2026, 10, 2, 16, 51, 37, 420812, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 2855394,
+ 'httpcompression/response_count': 10,
+ 'item_scraped_count': 120,
+ 'items_per_minute': 327.2727272727273,
+ 'log_count/INFO': 11,
+ 'request_depth_max': 8,
+ 'response_received_count': 10,
+ 'responses_per_minute': 27.272727272727273,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 9,
+ 'scheduler/dequeued/memory': 9,
+ 'scheduler/enqueued': 9,
+ 'scheduler/enqueued/memory': 9,
+ 'start_time': datetime.datetime(2026, 10, 2, 16, 51, 14, 704518, tzinfo=datetime.timezone.utc)}
+2026-10-02 21:51:37 [scrapy.core.engine] INFO: Spider closed (finished)
+2026-10-02 21:51:37 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 21:51:37 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 21:55:23 [scrapy.utils.log] INFO: Scrapy 2.19.0 started (bot: webmining)
+2026-10-02 21:55:23 [scrapy.utils.log] INFO: Versions:
+{'lxml': '5.3.0',
+ 'libxml2': '2.11.7',
+ 'cssselect': '1.5.0',
+ 'parsel': '1.11.0',
+ 'w3lib': '2.4.1',
+ 'Twisted': '26.4.0',
+ 'Python': '3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 '
+           '64 bit (AMD64)]',
+ 'pyOpenSSL': '26.4.0 (OpenSSL 4.0.2 25 Aug 2026)',
+ 'cryptography': '50.0.1',
+ 'Platform': 'Windows-11-10.0.26200-SP0'}
+2026-10-02 21:55:23 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-10-02 21:55:23 [scrapy.extensions.telnet] INFO: Telnet Password: c8540cfb334ac622
+2026-10-02 21:55:24 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logcount.LogCount',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.remote_control.RemoteControl']
+2026-10-02 21:55:24 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'webmining',
+ 'CONCURRENT_REQUESTS': 8,
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 2,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 30,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'FEED_EXPORT_INDENT': 2,
+ 'LOG_FILE': 'c:\\projects\\web-mining\\lab4\\logs\\news.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'webmining.spiders',
+ 'RETRY_HTTP_CODES': [429, 500, 502, 503, 504],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['webmining.spiders'],
+ 'USER_AGENT': 'web-mining-lab4/1.0 (educational project; contact: '
+               'student@example.com)'}
+2026-10-02 21:55:24 [scrapy-playwright] INFO: Started loop on separate thread: <ProactorEventLoop running=True closed=False debug=False>
+2026-10-02 21:55:24 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-10-02 21:55:24 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware',
+ 'scrapy.spidermiddlewares.metacopy.MetaCopyDetectionMiddleware']
+2026-10-02 21:55:24 [scrapy.middleware] INFO: Enabled item pipelines:
+['webmining.pipelines.CleaningPipeline',
+ 'webmining.pipelines.DuplicationPipeline',
+ 'webmining.pipelines.ValidationPipeline']
+2026-10-02 21:55:24 [scrapy.core.engine] INFO: Spider opened
+2026-10-02 21:55:24 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-10-02 21:55:24 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-10-02 21:55:24 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 21:55:24 [scrapy.extensions.remote_control] INFO: Remote control HTTP server listening on port 58614 (job 32840-e83411e578ec4d59ae259481b8b45938)
+2026-10-02 21:55:24 [scrapy-playwright] INFO: Starting download handler. Versions: scrapy-playwright==0.0.48, Playwright==1.63.0
+2026-10-02 21:55:48 [scrapy.core.engine] INFO: Closing spider (finished)
+2026-10-02 21:55:48 [webmining.pipelines] INFO: ValidationPipeline: отброшено записей — 0
+2026-10-02 21:55:48 [webmining.pipelines] INFO: DuplicationPipeline: отброшено дубликатов — 0
+2026-10-02 21:55:48 [webmining.pipelines] INFO: CleaningPipeline: поправлено полей — 152
+2026-10-02 21:55:48 [news] INFO: Не подошло по ключевым словам — 60 записей
+2026-10-02 21:55:48 [news] INFO: Собрано записей: 120 (нужно 100)
+2026-10-02 21:55:48 [scrapy.extensions.feedexport] INFO: Stored json feed (120 items) in: c:\projects\web-mining\lab4\output\news.json
+2026-10-02 21:55:48 [scrapy.extensions.feedexport] INFO: Stored csv feed (120 items) in: c:\projects\web-mining\lab4\output\news.csv
+2026-10-02 21:55:48 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 4836,
+ 'downloader/request_count': 10,
+ 'downloader/request_method_count/GET': 10,
+ 'downloader/response_bytes': 449469,
+ 'downloader/response_count': 10,
+ 'downloader/response_status_count/200': 10,
+ 'elapsed_time_seconds': 23.577999999999975,
+ 'feedexport/success_count/FileFeedStorage': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2026, 10, 2, 16, 55, 48, 349403, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 2857559,
+ 'httpcompression/response_count': 10,
+ 'item_scraped_count': 120,
+ 'items_per_minute': 313.04347826086956,
+ 'log_count/INFO': 11,
+ 'request_depth_max': 8,
+ 'response_received_count': 10,
+ 'responses_per_minute': 26.08695652173913,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 9,
+ 'scheduler/dequeued/memory': 9,
+ 'scheduler/enqueued': 9,
+ 'scheduler/enqueued/memory': 9,
+ 'start_time': datetime.datetime(2026, 10, 2, 16, 55, 24, 765183, tzinfo=datetime.timezone.utc)}
+2026-10-02 21:55:48 [scrapy.core.engine] INFO: Spider closed (finished)
+2026-10-02 21:55:48 [scrapy-playwright] INFO: Closing download handler
+2026-10-02 21:55:48 [scrapy-playwright] INFO: Closing download handler

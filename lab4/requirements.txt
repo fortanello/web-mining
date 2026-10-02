@@ -1,0 +1,7 @@
+scrapy>=2.13
+scrapy-playwright>=0.0.34
+playwright>=1.40
+ftfy>=6.1
+itemadapter>=0.8
+pytest>=8.0
+ipykernel>=6.29

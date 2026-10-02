@@ -107,3 +107,51 @@ def test_strip_tags_removes_markup():
 
 def test_batched_splits_titles():
     assert list(wikimedia.batched([1, 2, 3, 4, 5], 2)) == [[1, 2], [3, 4], [5]]
+
+PICTURE = {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Lac.jpg?utm_source=commons",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lac.jpg/800px-Lac.jpg",
+    "title": "File:Lac.jpg",
+    "description": "Водохранилище",
+    "artist": "Timothy A. Gonsalves",
+    "license": "cc-by-sa-4.0",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Lac.jpg",
+}
+
+@pytest.fixture
+def potd(monkeypatch, tmp_path):
+    wikimedia.errors.clear()
+    monkeypatch.setattr(wikimedia, "picture_of_the_day", lambda *args: dict(PICTURE))
+    return tmp_path
+
+def test_potd_saves_image_and_matching_text(potd, monkeypatch):
+    monkeypatch.setattr(wikimedia, "download",
+                        lambda url, path, stage: bool(path.write_bytes(b"jpeg") or True))
+
+    picture = main.save_picture_of_the_day(potd, "ru")
+    image = main.Path(picture["saved_image"])
+    text = main.Path(picture["saved_description"])
+
+    assert image.name == "Lac.jpg"           # utm-метки в имя файла не попали
+    assert text.name == "Lac.txt"            # описание названо так же, другое расширение
+    assert text.read_text(encoding="utf-8").startswith("File:Lac.jpg")
+    assert "Timothy A. Gonsalves" in text.read_text(encoding="utf-8")
+
+def test_potd_falls_back_to_thumbnail_and_marks_error_resolved(potd, monkeypatch):
+    def download(url, path, stage):
+        if stage == "potd-image":
+            wikimedia.errors.append({"stage": stage, "url": url, "error": "HTTPError: 403"})
+            return False
+        path.write_bytes(b"jpeg")
+        return True
+
+    monkeypatch.setattr(wikimedia, "download", download)
+    picture = main.save_picture_of_the_day(potd, "ru")
+
+    assert main.Path(picture["saved_image"]).exists()
+    assert wikimedia.errors[0]["resolved"] == "скачано превью вместо оригинала"
+
+def test_potd_reports_failure_when_both_urls_die(potd, monkeypatch):
+    monkeypatch.setattr(wikimedia, "download", lambda url, path, stage: False)
+
+    assert main.save_picture_of_the_day(potd, "ru") == {}

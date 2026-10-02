@@ -1,3 +1,4 @@
 cdx-toolkit>=0.9.34
 beautifulsoup4>=4.12
 tabulate>=0.9
+ipykernel>=6.29

@@ -5,3 +5,4 @@ lxml>=5.0
 graphviz>=0.20
 rutermextract>=0.3
 pymorphy3>=2.0
+ipykernel>=6.29

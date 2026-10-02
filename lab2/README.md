@@ -244,7 +244,8 @@ digraph metallurgy {
 | Симптом | Причина и что делать |
 |---|---|
 | `python` пишет «Python was not found» | команда упирается в заглушку Microsoft Store. Запускайте `py` либо выключите псевдонимы в «Параметры → Приложения → Псевдонимы выполнения приложения» |
-| `ModuleNotFoundError: No module named 'scrapy'` | не включён venv. `.\.venv\Scripts\Activate.ps1` — в приглашении должно появиться `(.venv)` |
+| `ModuleNotFoundError` в терминале | не включён venv: `.\.venv\Scripts\Activate.ps1`, в приглашении должно появиться `(.venv)` |
+| `ModuleNotFoundError` в тетради | ядро тетради смотрит в другое окружение. Кнопка `Select Kernel` в правом верхнем углу → `.venv` этой лабораторной. Быстрая альтернатива — выполнить `%pip install -r requirements.txt` ячейкой в самой тетради |
 | `AttributeError: module 'inspect' has no attribute 'getargspec'` | не установлен `pymorphy3`. `pip install pymorphy3` |
 | `ExecutableNotFound` или «Картинка не отрисована» | нет системного Graphviz. `winget install graphviz` и перезапустить терминал |
 | `scrapy list` ничего не печатает | команда запущена не из папки `task1`, где лежит `scrapy.cfg` |
