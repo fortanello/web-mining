@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .pytest_cache/
+
+# Лаба 6: скачанные ролики, кадры и аудио — сотни мегабайт на прогон
+lab6/data/
+lab6/index.json
+lab6/*.pt
+lab6/timeline.png

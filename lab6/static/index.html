@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Анализ видеоданных</title>
+<style>
+  :root {
+    --bg: #0f1419; --panel: #161c23; --line: #2a333d;
+    --text: #e6edf3; --dim: #8b949e; --accent: #58a6ff;
+    --object: #3fb950; --speech: #58a6ff; --loud: #d29922; --scene: #bc8cff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { padding: 20px 24px; border-bottom: 1px solid var(--line); }
+  h1 { margin: 0 0 4px; font-size: 20px; }
+  .dim { color: var(--dim); font-size: 13px; }
+  main { padding: 20px 24px; max-width: 1100px; }
+  .row { display: flex; gap: 10px; margin-bottom: 18px; }
+  input { flex: 1; padding: 10px 12px; background: var(--panel); color: var(--text);
+          border: 1px solid var(--line); border-radius: 6px; font-size: 15px; }
+  button { padding: 10px 18px; background: var(--accent); color: #0d1117;
+           border: 0; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  .card { background: var(--panel); border: 1px solid var(--line);
+          border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; }
+  .hit { padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .hit:last-child { border-bottom: 0; }
+  .hit a { color: var(--accent); text-decoration: none; font-variant-numeric: tabular-nums; }
+  .hit a:hover { text-decoration: underline; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 4px;
+         font-size: 12px; background: #21262d; color: var(--dim); margin-right: 6px; }
+  .timeline { position: relative; height: 54px; background: #0b0f14;
+              border: 1px solid var(--line); border-radius: 6px; margin: 10px 0 4px; }
+  .mark { position: absolute; top: 0; height: 100%; min-width: 2px;
+          cursor: pointer; opacity: 0.75; }
+  .mark:hover { opacity: 1; }
+  .mark.object { background: var(--object); top: 2px;  height: 12px; }
+  .mark.speech { background: var(--speech); top: 16px; height: 12px; }
+  .mark.loud   { background: var(--loud);   top: 30px; height: 10px; }
+  .mark.scene  { background: var(--scene);  top: 42px; height: 10px; }
+  .legend span { margin-right: 14px; font-size: 12px; color: var(--dim); }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+         margin-right: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Анализ видеоданных</h1>
+  <div class="dim">Поиск по словам из речи и по объектам в кадре. Клик по метке открывает ролик на нужной секунде.</div>
+</header>
+
+<main>
+  <div class="row">
+    <input id="query" placeholder="слово из речи или объект: кот, person, ремонт" autofocus>
+    <button id="go">Искать</button>
+  </div>
+
+  <div id="results"></div>
+  <h2 style="font-size:17px">Ролики и темы</h2>
+  <div id="videos" class="dim">загрузка…</div>
+</main>
+
+<script>
+const seconds = (value) => {
+  const total = Math.round(value || 0);
+  return `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
+};
+
+async function load(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error((await response.json()).detail || response.statusText);
+  return response.json();
+}
+
+// Временная шкала: каждое событие — полоска, её положение это доля от длительности
+function timeline(video) {
+  const duration = video.duration || 1;
+  const marks = video.events.map((event) => {
+    const left = (event.start / duration) * 100;
+    const width = Math.max(((event.end - event.start) / duration) * 100, 0.4);
+    const title = `${event.label} · ${seconds(event.start)}–${seconds(event.end)}`;
+    return `<div class="mark ${event.type}" style="left:${left}%;width:${width}%"
+                 title="${title.replace(/"/g, "&quot;")}" data-start="${event.start}"></div>`;
+  }).join("");
+
+  return `<div class="timeline" data-video="${video.id}">${marks}</div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--object)"></i>объекты</span>
+      <span><i class="dot" style="background:var(--speech)"></i>речь</span>
+      <span><i class="dot" style="background:var(--loud)"></i>громко</span>
+      <span><i class="dot" style="background:var(--scene)"></i>сцены</span>
+    </div>`;
+}
+
+function openAt(video, start) {
+  if (!video.url) { alert(`Локальный ролик, момент ${seconds(start)}`); return; }
+  const joiner = video.url.includes("?") ? "&" : "?";
+  window.open(`${video.url}${joiner}t=${Math.floor(start)}s`, "_blank");
+}
+
+async function showVideos() {
+  const box = document.getElementById("videos");
+  try {
+    const data = await load("/api/videos");
+    const words = data.cluster_words || {};
+
+    const cards = await Promise.all(data.videos.map(async (short) => {
+      const video = await load(`/api/video/${short.id}`);
+      const labels = Object.keys(video.objects.by_label || {}).slice(0, 6).join(", ");
+      const theme = (words[video.cluster] || []).slice(0, 5).join(", ");
+      const warning = video.warning
+        ? `<div class="tag" style="background:#3d1d1d;color:#ff7b72">${video.warning}</div>` : "";
+
+      return `<div class="card">
+        <h3>${video.title}</h3>
+        <div class="dim">${seconds(video.duration)} · кадров ${video.frames} ·
+             слов ${video.words} · кластер ${video.cluster}${theme ? " — " + theme : ""}</div>
+        ${warning}
+        <div class="dim" style="margin-top:4px">объекты: ${labels || "не найдены"}</div>
+        ${timeline(video)}
+      </div>`;
+    }));
+
+    box.innerHTML = cards.join("") +
+      `<div class="dim">silhouette кластеров: ${data.silhouette} ·
+       пропущено роликов: ${data.skipped.length}</div>`;
+
+    document.querySelectorAll(".timeline .mark").forEach((mark) => {
+      mark.addEventListener("click", async () => {
+        const id = mark.closest(".timeline").dataset.video;
+        openAt(await load(`/api/video/${id}`), Number(mark.dataset.start));
+      });
+    });
+  } catch (error) {
+    box.innerHTML = `<div class="card">${error.message}</div>`;
+  }
+}
+
+async function search() {
+  const box = document.getElementById("results");
+  const query = document.getElementById("query").value.trim();
+  if (!query) { box.innerHTML = ""; return; }
+
+  box.innerHTML = `<div class="dim">ищу…</div>`;
+  try {
+    const data = await load(`/api/search?q=${encodeURIComponent(query)}`);
+    if (!data.found) { box.innerHTML = `<div class="card">Ничего не нашлось по «${query}»</div>`; return; }
+
+    const hits = data.hits.map((hit) => `<div class="hit">
+        <span class="tag">${hit.kind}</span>
+        <a href="${hit.url || "#"}" target="_blank">${seconds(hit.start)}</a>
+        ${hit.text} <span class="dim">— ${hit.title}</span>
+      </div>`).join("");
+    box.innerHTML = `<div class="card"><h3>Найдено ${data.found}</h3>${hits}</div>`;
+  } catch (error) {
+    box.innerHTML = `<div class="card">${error.message}</div>`;
+  }
+}
+
+document.getElementById("go").addEventListener("click", search);
+document.getElementById("query").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") search();
+});
+showVideos();
+</script>
+</body>
+</html>

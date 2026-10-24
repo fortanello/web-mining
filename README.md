@@ -9,6 +9,7 @@
 | [`lab3`](lab3/README.md) | Wikimedia API | Сборщик данных о предметной области через API Википедии, Викиданных, Викисловаря и Commons |
 | [`lab4`](lab4/README.md) | Scrapy + Playwright | Два паука: новости со статического сайта и товары с динамического, с конвейером очистки и экспортом в JSON и CSV |
 | [`lab5`](lab5/README.md) | Тематическое моделирование | LDA и NMF с подбором числа тем по coherence на корпусах из lab4, плюс кластеризация городов по кухне |
+| [`lab6`](lab6/README.md) | Анализ видеоданных | Пайплайн от ссылки до интерфейса: объекты, речь, события с метками времени, темы и поиск с переходом на нужную секунду |
 
 ## Структура
 
@@ -32,11 +33,16 @@ web-mining/
 │   ├── webmining/          Scrapy-проект: пауки, pipelines, настройки
 │   ├── test_webmining.py   юнит-тесты
 │   └── practice4.ipynb
-└── lab5/
-    ├── topic_modeling.py   CLI тематического моделирования
-    ├── city_clustering.py  кластеризация городов по кухне
-    ├── test_lab5.py        юнит-тесты
-    └── practice5.ipynb
+├── lab5/
+│   ├── topic_modeling.py   CLI тематического моделирования
+│   ├── city_clustering.py  кластеризация городов по кухне
+│   ├── test_lab5.py        юнит-тесты
+│   └── practice5.ipynb
+└── lab6/
+    ├── pipeline.py         CLI анализа видео
+    ├── api.py              интерфейс на FastAPI
+    ├── test_lab6.py        юнит-тесты
+    └── practice6.ipynb
 ```
 
 Пятая работа берёт данные из `lab4/output`, остальные самостоятельны.

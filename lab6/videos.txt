@@ -1,0 +1,25 @@
+# Ролики для анализа: по одной ссылке или пути в строке.
+# Строки с решёткой и пустые пропускаются.
+#
+# Подобраны две подтемы внутри кулинарии — так кластеризация разложит их
+# по группам. В кадре много объектов из набора COCO: bowl, cup, knife, spoon,
+# oven, sink, dining table, banana, apple, cake.
+
+# --- выпечка ---
+https://www.youtube.com/watch?v=oKEFZ7NHk7A
+https://www.youtube.com/watch?v=EFRv6iVnULE
+https://www.youtube.com/watch?v=z6RCVSCnloo
+
+# --- мясные блюда ---
+https://www.youtube.com/watch?v=H3iupBCGCUo
+https://www.youtube.com/watch?v=nMPmcbG8dbQ
+https://www.youtube.com/watch?v=h3G04IqtyTo
+
+# Запасные, если какой-то из роликов окажется недоступен:
+# https://www.youtube.com/watch?v=lIqoeRrix4w
+# https://www.youtube.com/watch?v=S6Bg7PE18l0
+# https://www.youtube.com/watch?v=ypKow3KtVzg
+# https://www.youtube.com/watch?v=brECd9-wbhk
+
+# Локальные файлы указываются путём:
+# C:\videos\repair.mp4
