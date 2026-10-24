@@ -11,7 +11,7 @@ from webmining.sites import SHOP_SITES
 
 SCROLL_STEPS = 40
 SCROLL_PAUSE = 700
-PRICE = re.compile(r"\d[\d\s .,]*\d|\d")
+PRICE = re.compile(r"\d[\d\s\u00a0.,]*\d|\d")
 
 # Сколько прокруток нужно, зависит от каталога, поэтому листаем, пока число карточек растёт
 SCROLL = """
@@ -42,7 +42,7 @@ def parse_price(text):
     if not text:
         return None
 
-    match = PRICE.search(text.replace(" ", " "))
+    match = PRICE.search(text.replace("\u00a0", " "))
     if not match:
         return None
 
@@ -137,7 +137,34 @@ class EcommerceSpider(KeepCollecting, scrapy.Spider):
 
         self.logger.info("Карточек на странице: %d (%s)", len(cards), response.url)
         for card in cards:
-            yield self.build_item(card, response)
+            item = self.build_item(card, response)
+
+            # Описание лежит на карточке товара, а не в каталоге. Страница товара
+            # статическая, поэтому идём обычным запросом, без браузера
+            if profile.get("detail_description") and item.get("url"):
+                yield scrapy.Request(item["url"], callback=self.parse_detail,
+                                     errback=self.on_detail_error,
+                                     meta={"item": item, "profile": profile})
+            else:
+                yield item
+
+    def parse_detail(self, response):
+        item = response.meta["item"]
+        profile = response.meta["profile"]
+
+        parts = response.css(profile["detail_description"]).getall()
+        item["description"] = " ".join(" ".join(parts).split())
+        if not item["description"]:
+            self.logger.warning("Пустое описание на %s — проверьте селектор в sites.py",
+                                response.url)
+        yield item
+
+    def on_detail_error(self, failure):
+        # Карточка не открылась — запись отдаём без описания, терять её незачем
+        item = failure.request.meta.get("item")
+        self.logger.warning("Карточка товара не открылась: %s", failure.request.url)
+        if item is not None:
+            yield item
 
     def build_item(self, card, response):
         profile, site = response.meta["profile"], response.meta["site"]

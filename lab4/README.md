@@ -10,7 +10,7 @@ lab4/
 ├── scrapy.cfg
 ├── requirements.txt
 ├── Dockerfile               опциональный пункт задания
-├── test_webmining.py        55 тестов, сеть не нужна
+├── test_webmining.py        57 тестов, сеть не нужна
 ├── practice4.ipynb          тетрадь с прогоном обоих пауков
 ├── webmining/
 │   ├── settings.py          задержки, retry, pipelines, Playwright
@@ -55,7 +55,7 @@ playwright install chromium
 
 ```powershell
 python run_spider.py --spider news --keywords "ИИ,нейросети" --output news.json
-python run_spider.py --spider ecommerce --category laptops --output prices.json
+python run_spider.py --spider ecommerce --output prices.json
 ```
 
 | Аргумент | Значение |
@@ -63,7 +63,7 @@ python run_spider.py --spider ecommerce --category laptops --output prices.json
 | `--spider` | `news` или `ecommerce` (обязательный) |
 | `--output` | имя файла результата (обязательный); рядом всегда пишутся и `.json`, и `.csv` |
 | `--keywords` | слова через запятую: оставить только записи, где они встречаются (для `news`) |
-| `--category` | категория товаров, например `laptops` или `tablets` (для `ecommerce`) |
+| `--category` | с какой категории начать, например `computers/laptops` (для `ecommerce`); без него берутся все по порядку |
 | `--site` | с какого источника начать: `habr`, `lenta` для новостей; `testshop`, `testshop-ajax`, `books`, `wildberries` для товаров |
 | `--limit` | минимум записей, по умолчанию 100; собирается с запасом 20% |
 
@@ -75,7 +75,7 @@ python run_spider.py --spider ecommerce --category laptops --output prices.json
 | Файл | Что это |
 |---|---|
 | `output/news.json`, `output/news.csv` | статьи: заголовок, адрес, дата, краткое описание |
-| `output/prices.json`, `output/prices.csv` | товары: название, адрес, цена, валюта, рейтинг, отзывы |
+| `output/prices.json`, `output/prices.csv` | товары: название, адрес, описание, цена, валюта, рейтинг, отзывы |
 | `logs/news.log`, `logs/ecommerce.log` | полный лог Scrapy и отчёт каждого pipeline |
 
 Пример записи новости:
@@ -144,6 +144,11 @@ Scrapy, дальше CSS-селекторы. Пагинация — по ном�
 Селекторы у магазинов разные, поэтому профиль едет вместе с запросом в `meta["profile"]`,
 а не берётся из паука. Источник, не отдавший ни одной карточки, не ломает прогон: в лог
 идёт предупреждение, и паук переходит к следующему.
+
+Описание товара лежит не в каталоге, а на карточке, поэтому после разбора каталога паук
+идёт на страницу каждого товара — обычным запросом, без браузера: эти страницы статические.
+Если карточка не открылась, запись всё равно доходит до выгрузки, просто без описания.
+Описание нужно практике 3: на одних названиях тематическое моделирование работает плохо.
 
 ## Профили сайтов
 
@@ -261,7 +266,7 @@ Scrapy 2.13 изменил два интерфейса, которые в лек
 python -m pytest -q
 ```
 
-55 тестов, сеть не нужна: HTML подставляется через `HtmlResponse`, pipelines проверяются
+57 тестов, сеть не нужна: HTML подставляется через `HtmlResponse`, pipelines проверяются
 напрямую. Покрыто: исправление кракозябр и пробелов, выборочный нижний регистр, поиск
 дубликатов по адресу с метками и по заголовку, отбрасывание записей без обязательных полей
 и с абсурдной ценой, разбор цен в разных форматах (`$1,139.54`, `1 234,56 ₽`, `от 89 990 ₽`),

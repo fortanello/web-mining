@@ -10,6 +10,7 @@ class NewsItem(scrapy.Item):
 class ProductItem(scrapy.Item):
     title = scrapy.Field()
     url = scrapy.Field()
+    description = scrapy.Field()
     price = scrapy.Field()
     currency = scrapy.Field()
     rating = scrapy.Field()

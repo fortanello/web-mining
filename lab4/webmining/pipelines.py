@@ -5,8 +5,8 @@ import ftfy
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 
-TEXT_FIELDS = ("title", "summary")
-LOWERCASE_FIELDS = ("summary", "source")
+TEXT_FIELDS = ("title", "summary", "description")
+LOWERCASE_FIELDS = ("summary", "description", "source")
 REQUIRED_FIELDS = ("title", "url")
 MAX_PRICE = 10_000_000
 

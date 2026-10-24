@@ -30,6 +30,7 @@ SHOP_SITES = {
         "price": "h4.price::text",
         "rating": "p[data-rating]::attr(data-rating)",
         "reviews": "p.review-count::text",
+        "detail_description": "p.description::text",
         "currency": "USD",
     },
     # Тот же каталог, но товары догружаются запросами, а не прокруткой
@@ -43,6 +44,7 @@ SHOP_SITES = {
         "price": "h4.price::text",
         "rating": "p[data-rating]::attr(data-rating)",
         "reviews": "p.review-count::text",
+        "detail_description": "p.description::text",
         "currency": "USD",
     },
     # Книжный магазин-песочница: 1000 товаров по 20 на страницу, рейтинг словом в классе
@@ -56,6 +58,8 @@ SHOP_SITES = {
         "price": "p.price_color::text",
         "rating": "p.star-rating::attr(class)",
         "rating_words": {"One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5},
+        # на странице книги описание лежит соседним абзацем после заголовка раздела
+        "detail_description": "#product_description ~ p::text",
         "currency": "GBP",
     },
     # Заготовка для настоящего магазина. Wildberries закрыт антиботовой защитой: паук,
