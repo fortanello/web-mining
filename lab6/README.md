@@ -26,7 +26,7 @@ lab6/
 ├── visualize_timeline.py  статическая шкала для отчёта
 ├── videos.txt        список ссылок
 ├── sample/sample.mp4 проверочный ролик с известным содержанием
-├── test_lab6.py      31 тест, модели не нужны
+├── test_lab6.py      45 тестов, модели не нужны
 └── practice6.ipynb   тетрадь с отчётом
 ```
 
@@ -35,7 +35,7 @@ lab6/
 # Установка
 
 ```powershell
-cd C:\projects\web-mining\lab6
+cd lab6
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -77,7 +77,7 @@ py -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_arch_list()
 # Запуск
 
 ```powershell
-py pipeline.py --sources videos.txt --output index.json
+py pipeline.py --sources videos.txt --whisper small --device cpu --clusters 2
 py -m uvicorn api:app --reload
 ```
 
@@ -93,6 +93,8 @@ py -m uvicorn api:app --reload
 | `--device` | auto, cpu или cuda |
 | `--no-speech` | не распознавать речь (громкость считается всё равно) |
 | `--force` | пересчитать, игнорируя кэш |
+| `--data` | папка промежуточных результатов, по умолчанию `data` |
+| `--output` | файл индекса, по умолчанию `index.json` |
 
 Ссылки впишите в `videos.txt`. По критериям оценки нужно **не меньше пяти роликов**,
 желательно на одну тему — иначе группировка не покажет ничего осмысленного.
@@ -144,16 +146,17 @@ py -m uvicorn api:app --reload
 py -m pytest test_lab6.py -q
 ```
 
-31 тест, тяжёлые модели не нужны: события, громкость, поиск и группировка проверяются
+45 тестов, тяжёлые модели не нужны: события, громкость, поиск и группировка проверяются
 на подставных данных.
 
 Отдельно лежит `sample/sample.mp4` — ролик, собранный так, что ответ известен заранее:
 человек первые пять секунд, кот вторые, чашка на столе последние, громкий звук
 с шестой по восьмую секунду. Прогон на нём показывает, совпадают ли метки событий
-с реальностью:
+с реальностью. Он идёт в отдельную папку, чтобы не затереть основной индекс:
 
 ```powershell
-py pipeline.py --sources sample/sample.txt --no-speech --clusters 2
+py pipeline.py --sources sample/sample.txt --no-speech --clusters 2 \
+    --data data/sample --output data/sample-index.json
 ```
 
 ---
