@@ -41,8 +41,8 @@ def check_device(device):
         print(f"  ВНИМАНИЕ: {torch.cuda.get_device_name(0)} имеет архитектуру "
               f"{architecture}, а torch собран под {', '.join(supported)}")
         print("  переустановите torch под свежую CUDA, иначе видеокарта бесполезна:")
-        print("      pip install torch torchvision --force-reinstall \\")
-        print("          --index-url https://download.pytorch.org/whl/cu130")
+        print("      pip install torch torchvision --force-reinstall "
+              "--index-url https://download.pytorch.org/whl/cu130")
         print("  пока считаю на процессоре")
         return "cpu"
 

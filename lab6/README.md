@@ -155,8 +155,7 @@ py -m pytest test_lab6.py -q
 с реальностью. Он идёт в отдельную папку, чтобы не затереть основной индекс:
 
 ```powershell
-py pipeline.py --sources sample/sample.txt --no-speech --clusters 2 \
-    --data data/sample --output data/sample-index.json
+py pipeline.py --sources sample/sample.txt --no-speech --clusters 2 --data data/sample --output data/sample-index.json
 ```
 
 ---
