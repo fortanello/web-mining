@@ -1,5 +1,7 @@
 """Аудиодорожка: громкость по окнам и транскрипт речи."""
 import json
+import sys
+import types
 import wave
 from pathlib import Path
 
@@ -11,7 +13,27 @@ MODEL_SIZE = "base"
 WINDOW = 1.0
 
 
+# Отсчёты в диапазоне [-1, 1] — в таком виде их ждёт и расчёт громкости,
+# и модель распознавания. К 16 кГц моно дорожку привёл ffmpeg при декомпозиции
+def read_samples(audio_path):
+    with wave.open(str(audio_path), "rb") as handle:
+        rate = handle.getframerate()
+        frames = handle.readframes(handle.getnframes())
+
+    return np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0, rate
+
+
+# faster-whisper тянет PyAV только чтобы прочитать файл с диска, а мы отдаём
+# готовые отсчёты. Windows блокирует неподписанные библиотеки PyAV политикой
+# управления приложениями, поэтому ненужную зависимость подменяем пустышкой
 def load_model(size=MODEL_SIZE, device="auto", compute_type="default"):
+    try:
+        import av
+    except ImportError as error:
+        print(f"  PyAV не загрузился ({error}), читаю дорожку сам — "
+              f"на распознавание это не влияет")
+        sys.modules["av"] = types.ModuleType("av")
+
     from faster_whisper import WhisperModel
     return WhisperModel(size, device=device, compute_type=compute_type)
 
@@ -19,11 +41,7 @@ def load_model(size=MODEL_SIZE, device="auto", compute_type="default"):
 # Громкость считается по окнам в один корень из среднего квадрата:
 # по ней видно всплески, которые часто совпадают со значимыми моментами
 def loudness(audio_path, window=WINDOW):
-    with wave.open(str(audio_path), "rb") as handle:
-        rate = handle.getframerate()
-        frames = handle.readframes(handle.getnframes())
-
-    samples = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0
+    samples, rate = read_samples(audio_path)
     if samples.size == 0:
         return []
 
@@ -39,8 +57,8 @@ def loudness(audio_path, window=WINDOW):
 
 
 def transcribe(model, audio_path, language="ru"):
-    segments, info = model.transcribe(str(audio_path), language=language,
-                                      vad_filter=True)
+    samples, _ = read_samples(audio_path)
+    segments, info = model.transcribe(samples, language=language, vad_filter=True)
     return [{"start": round(segment.start, 2), "end": round(segment.end, 2),
              "text": segment.text.strip()} for segment in segments], info
 

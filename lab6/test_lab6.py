@@ -181,6 +181,32 @@ def test_loudness_follows_the_signal(tmp_path):
     assert len(windows) == 2
     assert windows[0]["rms"] < windows[1]["rms"]
 
+def test_model_gets_samples_not_a_path(tmp_path):
+    # PyAV на Windows блокируется политикой управления приложениями, поэтому
+    # файл читаем сами и отдаём модели готовые отсчёты
+    path = tmp_path / "audio.wav"
+    write_wave(path, np.ones(16000, dtype=np.float32) * 0.2)
+    received = []
+
+    class Recorder:
+        def transcribe(self, audio, **kwargs):
+            received.append(audio)
+            return iter([]), None
+
+    speech.transcribe(Recorder(), path)
+
+    assert isinstance(received[0], np.ndarray)
+    assert received[0].dtype == np.float32
+    assert received[0].size == 16000
+
+def test_samples_are_normalized(tmp_path):
+    path = tmp_path / "audio.wav"
+    write_wave(path, np.ones(16000, dtype=np.float32) * 0.5)
+    samples, rate = speech.read_samples(path)
+
+    assert rate == 16000
+    assert abs(float(samples.max()) - 0.5) < 0.01
+
 def test_empty_transcript_is_flagged(tmp_path, capsys):
     path = tmp_path / "audio.wav"
     write_wave(path, np.zeros(16000, dtype=np.float32))
