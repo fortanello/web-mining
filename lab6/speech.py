@@ -1,5 +1,6 @@
 """Аудиодорожка: громкость по окнам и транскрипт речи."""
 import json
+import os
 import sys
 import types
 import wave
@@ -23,6 +24,24 @@ def read_samples(audio_path):
     return np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0, rate
 
 
+# ctranslate2 внутри faster-whisper собран под CUDA 12 и ищет её библиотеки
+# по имени файла, а torch приносит с собой CUDA 13. Библиотеки CUDA 12 ставятся
+# пакетами nvidia-cublas-cu12 и nvidia-cudnn-cu12, но путь к ним Windows сама
+# не знает — подсказываем до загрузки модели
+def add_cuda_libraries():
+    try:
+        import nvidia
+    except ImportError:
+        return
+
+    folders = sorted({str(dll.parent) for root in nvidia.__path__
+                      for dll in Path(root).rglob("*.dll")})
+    for folder in folders:
+        os.add_dll_directory(folder)
+    if folders:
+        os.environ["PATH"] = os.pathsep.join(folders + [os.environ["PATH"]])
+
+
 # faster-whisper тянет PyAV только чтобы прочитать файл с диска, а мы отдаём
 # готовые отсчёты. Windows блокирует неподписанные библиотеки PyAV политикой
 # управления приложениями, поэтому ненужную зависимость подменяем пустышкой
@@ -34,6 +53,7 @@ def load_model(size=MODEL_SIZE, device="auto", compute_type="default"):
               f"на распознавание это не влияет")
         sys.modules["av"] = types.ModuleType("av")
 
+    add_cuda_libraries()
     from faster_whisper import WhisperModel
     return WhisperModel(size, device=device, compute_type=compute_type)
 

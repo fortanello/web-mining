@@ -7,10 +7,15 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import silhouette_score
+from stop_words import get_stop_words
 
 MAX_FEATURES = 5000
 RANDOM_STATE = 42
 TOP_WORDS = 10
+# isalpha отбрасывает записи с апострофами и дефисами: TfidfVectorizer режет их
+# на части и предупреждает о несогласованности списка со своим разбором
+STOP_WORDS = sorted({word for language in ("russian", "english")
+                     for word in get_stop_words(language) if word.isalpha()})
 
 
 # Текст ролика собирается из всех источников сразу: название и описание дают тему,
@@ -23,8 +28,11 @@ def document_text(meta, transcript, detections):
     return " ".join(parts).lower()
 
 
+# Без стоп-слов кластеры описываются словами «то, есть, что, не»: они есть
+# в каждом ролике и делить по ним нечего
 def build_matrix(texts, max_features=MAX_FEATURES):
-    vectorizer = TfidfVectorizer(max_features=max_features, min_df=1)
+    vectorizer = TfidfVectorizer(max_features=max_features, min_df=1,
+                                 stop_words=STOP_WORDS)
     return vectorizer, vectorizer.fit_transform(texts)
 
 
@@ -71,10 +79,17 @@ def cluster_words(matrix, vectorizer, labels, top_words=TOP_WORDS):
     return words
 
 
+# Группировка считается секунды, поэтому кэш здесь не экономит время, а мешает:
+# при другом числе кластеров или другом наборе роликов его надо пересчитать,
+# иначе ключ --clusters молча не сработает
 def group(videos, root, clusters=5, force=False):
     path = Path(root) / "topics.json"
+    request = {"clusters": clusters, "videos": [video["id"] for video in videos]}
+
     if path.exists() and not force:
-        return json.loads(path.read_text(encoding="utf-8"))
+        cached = json.loads(path.read_text(encoding="utf-8"))
+        if cached.get("request") == request:
+            return cached
 
     texts = [video["text"] for video in videos]
     vectorizer, matrix = build_matrix(texts)
@@ -83,6 +98,7 @@ def group(videos, root, clusters=5, force=False):
     topics, weights = nmf_topics(matrix, vectorizer, used)
 
     result = {
+        "request": request,
         "videos": [{"id": video["id"], "title": video["title"], "cluster": int(label),
                     "topic": int(weights[index].argmax())}
                    for index, (video, label) in enumerate(zip(videos, labels))],

@@ -1,4 +1,7 @@
 import json
+import os
+import sys
+import types
 import wave
 from pathlib import Path
 
@@ -181,6 +184,30 @@ def test_loudness_follows_the_signal(tmp_path):
     assert len(windows) == 2
     assert windows[0]["rms"] < windows[1]["rms"]
 
+def test_cuda_libraries_are_found(tmp_path, monkeypatch):
+    # ctranslate2 ищет библиотеки CUDA 12 по имени файла; без подсказанного пути
+    # распознавание падает на видеокарте с «cublas64_12.dll is not found»
+    folder = tmp_path / "nvidia" / "cublas" / "bin"
+    folder.mkdir(parents=True)
+    (folder / "cublas64_12.dll").write_bytes(b"\x00")
+
+    package = types.ModuleType("nvidia")
+    package.__path__ = [str(tmp_path / "nvidia")]
+    added = []
+    monkeypatch.setitem(sys.modules, "nvidia", package)
+    monkeypatch.setattr(os, "add_dll_directory", added.append, raising=False)
+    monkeypatch.setenv("PATH", "прежний")
+
+    speech.add_cuda_libraries()
+
+    assert added == [str(folder)]
+    assert str(folder) in os.environ["PATH"]
+    assert "прежний" in os.environ["PATH"]
+
+def test_cuda_libraries_skipped_without_the_packages(monkeypatch):
+    monkeypatch.setitem(sys.modules, "nvidia", None)
+    speech.add_cuda_libraries()
+
 def test_model_gets_samples_not_a_path(tmp_path):
     # PyAV на Windows блокируется политикой управления приложениями, поэтому
     # файл читаем сами и отдаём модели готовые отсчёты
@@ -271,6 +298,48 @@ def test_clustering_groups_similar_videos():
     assert len(set(labels[3:])) == 1          # все про кота в другой
     assert labels[0] != labels[3]
     assert score > 0
+
+def reviews():
+    texts = ["ноутбук экран клавиатура", "ноутбук процессор экран",
+             "смартфон камера батарея", "смартфон камера корпус"]
+    return [{"id": f"v{index}", "title": f"ролик {index}", "text": text}
+            for index, text in enumerate(texts)]
+
+def test_stop_words_do_not_describe_clusters(tmp_path):
+    # до фильтрации кластеры описывались словами «то, есть, что» из каждого ролика
+    videos = [{"id": "v0", "title": "", "text": "вот это тот ноутбук и у него экран"},
+              {"id": "v1", "title": "", "text": "а вот это тот смартфон и у него камера"}]
+    words = topics.group(videos, tmp_path, clusters=2)["cluster_words"]
+
+    found = {word for group in words.values() for word in group}
+    assert not found & set(topics.STOP_WORDS)
+    assert found & {"ноутбук", "смартфон"}
+
+def test_grouping_recomputed_when_cluster_count_changes(tmp_path):
+    # иначе ключ --clusters молча не работает: вернётся прошлая группировка
+    first = topics.group(reviews(), tmp_path, clusters=2)
+    second = topics.group(reviews(), tmp_path, clusters=3)
+
+    assert first["clusters"] == 2
+    assert second["clusters"] == 3
+
+def test_grouping_taken_from_cache_for_the_same_request(tmp_path):
+    topics.group(reviews(), tmp_path, clusters=2)
+    path = tmp_path / "topics.json"
+    stored = json.loads(path.read_text(encoding="utf-8"))
+    stored["silhouette"] = 0.999
+    path.write_text(json.dumps(stored, ensure_ascii=False), encoding="utf-8")
+
+    assert topics.group(reviews(), tmp_path, clusters=2)["silhouette"] == 0.999
+
+def test_two_clusters_separate_laptops_from_phones(tmp_path):
+    result = topics.group(reviews(), tmp_path, clusters=2)
+    by_video = {item["id"]: item["cluster"] for item in result["videos"]}
+
+    assert by_video["v0"] == by_video["v1"]
+    assert by_video["v2"] == by_video["v3"]
+    assert by_video["v0"] != by_video["v2"]
+    assert result["silhouette"] > 0.1
 
 # ---- интерфейс ----
 

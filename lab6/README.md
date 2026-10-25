@@ -54,12 +54,18 @@ sm_120) нужна сборка не ниже CUDA 13:
 
 ```powershell
 pip install torch torchvision --force-reinstall --index-url https://download.pytorch.org/whl/cu130
-python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_arch_list())"
+py -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_arch_list())"
 ```
 
 Вторая команда должна показать `True` и архитектуру вашей карты в списке. Пайплайн
 проверяет это сам при запуске и, если ядер нет, предупреждает и считает на процессоре,
 а не падает на середине.
+
+**Распознавание речи на процессоре.** `ctranslate2`, на котором работает
+`faster-whisper`, собран только под CUDA 12 — с torch под CUDA 13 он не находит
+нужных библиотек. Для шестёрки роликов это не критично: кадры через YOLO идут
+на видеокарте, а речь считается на процессоре ключом `--device cpu` — около
+получаса на сто минут звука.
 
 **Smart App Control.** На Windows 11 эта защита блокирует неподписанные библиотеки
 и роняет импорт `faster-whisper` ошибкой «Политика управления приложениями заблокировала
@@ -71,8 +77,8 @@ python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_arch_li
 # Запуск
 
 ```powershell
-python pipeline.py --sources videos.txt --output index.json
-uvicorn api:app --reload
+py pipeline.py --sources videos.txt --output index.json
+py -m uvicorn api:app --reload
 ```
 
 Затем открыть `http://127.0.0.1:8000`.
@@ -80,7 +86,7 @@ uvicorn api:app --reload
 | Аргумент | Значение |
 |---|---|
 | `--sources` | файл со ссылками и путями, по одному в строке |
-| `--clusters` | число тематических групп, по умолчанию 5 |
+| `--clusters` | число тематических групп, по умолчанию 5 — ставьте по числу подтем в наборе, иначе кластеров выйдет почти столько же, сколько роликов, и группировка ничего не покажет |
 | `--confidence` | порог детектора, по умолчанию 0.35 |
 | `--whisper` | размер модели речи: tiny, base, small, medium |
 | `--language` | язык речи, по умолчанию ru |
@@ -135,7 +141,7 @@ uvicorn api:app --reload
 # Проверка результата
 
 ```powershell
-python -m pytest test_lab6.py -q
+py -m pytest test_lab6.py -q
 ```
 
 31 тест, тяжёлые модели не нужны: события, громкость, поиск и группировка проверяются
@@ -147,7 +153,7 @@ python -m pytest test_lab6.py -q
 с реальностью:
 
 ```powershell
-python pipeline.py --sources sample/sample.txt --no-speech --clusters 2
+py pipeline.py --sources sample/sample.txt --no-speech --clusters 2
 ```
 
 ---
@@ -165,6 +171,7 @@ python pipeline.py --sources sample/sample.txt --no-speech --clusters 2
 | Всё считается на процессоре | torch собран без CUDA или без ядер под вашу карту — смотрите строку «Устройство расчёта» при запуске |
 | `ResolutionImpossible`, нет сборок `ctranslate2` | слишком свежий Python, нужен 3.12 |
 | `no kernel image is available` | сборка torch старше вашей видеокарты, нужна новее CUDA |
+| `cublas64_12.dll is not found or cannot be loaded` | `ctranslate2` собран только под CUDA 12 и не видит библиотек от torch с CUDA 13. Лечится `pip install nvidia-cublas-cu12 nvidia-cudnn-cu12`, но на картах поколения Blackwell не помогает — считайте речь на процессоре: `--device cpu` |
 | 403 Forbidden при скачивании | ролик закрыт или требует входа — замените запасным из `videos.txt` |
 | `сцен 0` у ролика | ролик снят одним планом либо порог `SCENE_THRESHOLD` в `decompose.py` слишком высок |
 | Группировка выдала один кластер | роликов меньше трёх, делить нечего |
