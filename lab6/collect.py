@@ -102,16 +102,45 @@ def read_sources(path):
     return [line.strip() for line in lines if line.strip() and not line.startswith("#")]
 
 
+# Уже скачанный ролик ищем по ссылке в сохранённых метаданных: повторный прогон
+# не должен заново тянуть гигабайты с хостинга
+def find_cached(source, root):
+    for meta_path in Path(root).glob("*/meta.json"):
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        video_id = meta.get("id")
+        matches = meta.get("webpage_url") == source or (video_id and video_id in source)
+        if matches and meta.get("file") and Path(meta["file"]).exists():
+            return meta
+
+    return None
+
+
 # Ролик, который не удалось взять, не исчезает молча: причина пишется в отчёт
-def collect(sources, root, skipped):
+def collect(sources, root, skipped, force=False):
     collected = []
     for source in sources:
+        if not force:
+            cached = find_cached(source, root)
+            if cached is not None:
+                collected.append(cached)
+                print(f"  {cached['id']}: взят из кэша "
+                      f"({cached['probe']['duration']:.0f} с)")
+                continue
+
         try:
             if source.startswith("http"):
                 meta = download(source, root)
                 time.sleep(DOWNLOAD_PAUSE)
             else:
                 meta = take_local(source, root)
+        except KeyboardInterrupt:
+            skipped.append({"source": source, "reason": "прервано пользователем"})
+            print(f"  прервано на {source}, продолжаю с тем, что собрано")
+            break
         except Exception as error:
             skipped.append({"source": source, "reason": f"{type(error).__name__}: {error}"})
             print(f"  пропущен {source}: {type(error).__name__}")

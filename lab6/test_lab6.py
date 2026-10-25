@@ -15,6 +15,64 @@ import speech
 import topics
 import vision
 
+# ---- кэш сбора ----
+
+def cached_video(root, video_id="abc123", url="https://www.youtube.com/watch?v=abc123"):
+    folder = Path(root) / video_id
+    folder.mkdir(parents=True)
+    video = folder / "source.mp4"
+    video.write_bytes(b"\x00")
+    meta = {"id": video_id, "title": "обзор", "webpage_url": url,
+            "file": str(video), "probe": {"duration": 42.0}}
+    (folder / "meta.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
+    return meta
+
+def test_cached_video_found_by_url(tmp_path):
+    cached_video(tmp_path)
+
+    assert collect.find_cached("https://www.youtube.com/watch?v=abc123", tmp_path)["id"] == "abc123"
+    assert collect.find_cached("https://youtu.be/abc123", tmp_path)["id"] == "abc123"
+
+def test_other_video_is_not_substituted(tmp_path):
+    cached_video(tmp_path)
+
+    assert collect.find_cached("https://www.youtube.com/watch?v=xyz789", tmp_path) is None
+
+def test_cache_invalid_without_the_file(tmp_path):
+    # метаданные остались, а файл удалён — такой кэш использовать нельзя
+    meta = cached_video(tmp_path)
+    Path(meta["file"]).unlink()
+
+    assert collect.find_cached(meta["webpage_url"], tmp_path) is None
+
+def test_broken_meta_does_not_break_the_search(tmp_path):
+    (tmp_path / "битый").mkdir()
+    (tmp_path / "битый" / "meta.json").write_text("{не json", encoding="utf-8")
+    meta = cached_video(tmp_path)
+
+    assert collect.find_cached(meta["webpage_url"], tmp_path)["id"] == "abc123"
+
+def test_collect_takes_video_from_cache_without_network(tmp_path, monkeypatch):
+    meta = cached_video(tmp_path)
+    monkeypatch.setattr(collect, "download", lambda *a, **kw: pytest.fail("ушёл в сеть"))
+    skipped = []
+
+    collected = collect.collect([meta["webpage_url"]], tmp_path, skipped)
+
+    assert [item["id"] for item in collected] == ["abc123"]
+    assert skipped == []
+
+def test_force_ignores_the_cache(tmp_path, monkeypatch):
+    meta = cached_video(tmp_path)
+    requested = []
+    monkeypatch.setattr(collect, "DOWNLOAD_PAUSE", 0)
+    monkeypatch.setattr(collect, "download", lambda url, root: requested.append(url) or
+                        {"id": "abc123", "title": "заново", "probe": {"duration": 42.0}})
+
+    collect.collect([meta["webpage_url"]], tmp_path, [], force=True)
+
+    assert requested == [meta["webpage_url"]]
+
 # ---- декомпозиция ----
 
 def test_frame_rate_adapts_to_duration():

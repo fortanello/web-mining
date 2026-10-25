@@ -1,25 +1,39 @@
 # Ролики для анализа: по одной ссылке или пути в строке.
 # Строки с решёткой и пустые пропускаются.
 #
-# Подобраны две подтемы внутри кулинарии — так кластеризация разложит их
-# по группам. В кадре много объектов из набора COCO: bowl, cup, knife, spoon,
-# oven, sink, dining table, banana, apple, cake.
+# Две подтемы внутри обзоров техники: ноутбуки и смартфоны. Лексика разная
+# («экран, клавиатура, процессор» против «камера, батарея, корпус»), поэтому
+# кластеризация разложит ролики по группам.
+#
+# Объекты из набора COCO, которые ждём в кадре: laptop, cell phone, keyboard,
+# mouse, tv, remote, book, person, cup, bottle.
 
-# --- выпечка ---
-https://www.youtube.com/watch?v=oKEFZ7NHk7A
-https://www.youtube.com/watch?v=EFRv6iVnULE
-https://www.youtube.com/watch?v=z6RCVSCnloo
+# --- ноутбуки ---
+https://www.youtube.com/watch?v=W4DCfAtaaBQ
+https://www.youtube.com/watch?v=eGOltjYI2Io
+https://www.youtube.com/watch?v=qLjX99dbvfI
 
-# --- мясные блюда ---
-https://www.youtube.com/watch?v=H3iupBCGCUo
-https://www.youtube.com/watch?v=nMPmcbG8dbQ
-https://www.youtube.com/watch?v=h3G04IqtyTo
+# --- смартфоны ---
+https://www.youtube.com/watch?v=sNFo28xpZ60
+https://www.youtube.com/watch?v=H5hiC1z1384
+https://www.youtube.com/watch?v=TneQM5OyFWs
 
-# Запасные, если какой-то из роликов окажется недоступен:
+# Альтернативный набор — кулинария (выпечка против мясных блюд).
+# Проверен и работает, если захочется сменить тему:
+# https://www.youtube.com/watch?v=oKEFZ7NHk7A
+# https://www.youtube.com/watch?v=EFRv6iVnULE
 # https://www.youtube.com/watch?v=lIqoeRrix4w
+# https://www.youtube.com/watch?v=H3iupBCGCUo
+# https://www.youtube.com/watch?v=nMPmcbG8dbQ
+# https://www.youtube.com/watch?v=h3G04IqtyTo
+
+# Отдал 403 Forbidden, закрыт или требует входа:
+# https://www.youtube.com/watch?v=z6RCVSCnloo
+
+# Запасные на случай новых отказов:
 # https://www.youtube.com/watch?v=S6Bg7PE18l0
 # https://www.youtube.com/watch?v=ypKow3KtVzg
 # https://www.youtube.com/watch?v=brECd9-wbhk
 
 # Локальные файлы указываются путём:
-# C:\videos\repair.mp4
+# C:\videos\review.mp4

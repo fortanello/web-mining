@@ -19,6 +19,37 @@ ROOT = Path(__file__).resolve().parent / "data"
 INDEX = Path(__file__).resolve().parent / "index.json"
 
 
+# Видеокарта новее, чем сборка torch, — частый случай: карта есть, CUDA видна,
+# но ядер под её архитектуру в сборке нет, и расчёт падает уже внутри модели.
+# Проверяем заранее и честно откатываемся на процессор
+def check_device(device):
+    try:
+        import torch
+    except ImportError:
+        return "cpu"
+
+    if device == "cpu" or not torch.cuda.is_available():
+        if device == "cuda":
+            print("  CUDA недоступна, считаю на процессоре")
+        return "cpu"
+
+    major, minor = torch.cuda.get_device_capability()
+    architecture = f"sm_{major}{minor}"
+    supported = torch.cuda.get_arch_list()
+
+    if architecture not in supported:
+        print(f"  ВНИМАНИЕ: {torch.cuda.get_device_name(0)} имеет архитектуру "
+              f"{architecture}, а torch собран под {', '.join(supported)}")
+        print("  переустановите torch под свежую CUDA, иначе видеокарта бесполезна:")
+        print("      pip install torch torchvision --force-reinstall \\")
+        print("          --index-url https://download.pytorch.org/whl/cu130")
+        print("  пока считаю на процессоре")
+        return "cpu"
+
+    print(f"  видеокарта: {torch.cuda.get_device_name(0)} ({architecture})")
+    return "cuda"
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         prog="pipeline",
@@ -45,12 +76,15 @@ def main(argv=None):
     root.mkdir(parents=True, exist_ok=True)
     skipped = []
 
+    print("0. Устройство расчёта")
+    device = check_device(args.device)
+
     print("1. Сбор роликов")
     sources = collect.read_sources(args.sources)
     if not sources:
         print(f"  в {args.sources} нет ни одной ссылки")
         return 1
-    collected = collect.collect(sources, root, skipped)
+    collected = collect.collect(sources, root, skipped, args.force)
     if not collected:
         print("  не собрано ни одного ролика")
         return 1
@@ -60,12 +94,11 @@ def main(argv=None):
 
     print("\n3. Распознавание объектов")
     detector = vision.load_model()
-    detections = [vision.analyse(item, root, detector, args.confidence,
-                                 args.force, args.device if args.device != "auto" else None)
+    detections = [vision.analyse(item, root, detector, args.confidence, args.force, device)
                   for item in decomposed]
 
     print("\n4. Речь и громкость")
-    recognizer = None if args.no_speech else speech.load_model(args.whisper, device=args.device)
+    recognizer = None if args.no_speech else speech.load_model(args.whisper, device=device)
     transcripts = [speech.analyse(item, root, recognizer, args.language, args.force,
                                   recognize=not args.no_speech)
                    for item in decomposed]
@@ -110,7 +143,8 @@ def main(argv=None):
         "silhouette": grouped["silhouette"],
         "skipped": skipped,
         "settings": {"confidence": args.confidence, "whisper": args.whisper,
-                     "language": args.language, "clusters": grouped["clusters"]},
+                     "language": args.language, "clusters": grouped["clusters"],
+                     "device": device},
     }
 
     Path(args.output).write_text(json.dumps(index, ensure_ascii=False, indent=2),
