@@ -1,0 +1,80 @@
+{
+  "test_users": 116,
+  "test_users_with_positives": 116,
+  "evaluated_users": 116,
+  "test_positives": 9326,
+  "eligible_positives": 8043,
+  "cold_item_positives": 1283,
+  "repeat_positives": 0,
+  "segments": {
+    "0": 88,
+    "1–19": 1,
+    "20+": 27
+  },
+  "reference_k": 10,
+  "bootstrap_ndcg": {
+    "все": [
+      {
+        "model": "content",
+        "difference": -0.01991335103038419,
+        "low": -0.04068739139498443,
+        "high": -0.005096845340649096
+      },
+      {
+        "model": "svd",
+        "difference": -0.012469804494454772,
+        "low": -0.0308710266130668,
+        "high": 0.000731736031154854
+      },
+      {
+        "model": "als",
+        "difference": -0.005564365265926066,
+        "low": -0.0296363083793982,
+        "high": 0.016614418102794334
+      }
+    ],
+    "20+": [
+      {
+        "model": "content",
+        "difference": -0.057198341831402426,
+        "low": -0.11596970960153494,
+        "high": -0.0130497311379523
+      },
+      {
+        "model": "svd",
+        "difference": -0.03307889619455437,
+        "low": -0.09041521469357987,
+        "high": 0.011713144140664001
+      },
+      {
+        "model": "als",
+        "difference": 0.0044491525640472755,
+        "low": -0.0806121479561307,
+        "high": 0.08459933439315702
+      }
+    ]
+  },
+  "median_eligible_positives": {
+    "все": 28.5,
+    "0": 42.0,
+    "1–19": 48.0,
+    "20+": 13.0
+  },
+  "ratings": 100836,
+  "users": 610,
+  "movies": 9742,
+  "train_ratings": 80668,
+  "test_ratings": 20168,
+  "train_users": 522,
+  "candidate_movies": 7867,
+  "cutoff_utc": "2016-03-22T08:26:11+00:00",
+  "sparsity": 0.9830317267467884,
+  "train_positives": 39254,
+  "activity": {
+    "0.25": 35.0,
+    "0.5": 70.5,
+    "0.75": 168.0,
+    "1.0": 2698.0
+  },
+  "archive_sha256": "696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436"
+}
